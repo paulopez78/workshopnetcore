@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Voting App</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root">
+        <h1>Voting App</h1>
+
+        <div id="votingTopics" class="topics"></div>
+
+        <div id="votingCommands" class="buttons">
+            <input id="topics" type="text" class="input"/>
+            <button id="start" class="button">start</button>
+            <button id="finish" class="button">finish</button>
+        </div>
+        <div id="errors"></div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
