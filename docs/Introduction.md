@@ -6,7 +6,7 @@
 * [Docker CE (edge version)](https://www.docker.com/community-edition#/download)
 
 
-## Get started with dotnet CLI and SDK
+## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
 * [SDK architecture](https://docs.microsoft.com/en-us/dotnet/core/tools/cli-msbuild-architecture)
 * Introduction to donet CLI basic commands and new SDK architecture based on msbuild targets 
@@ -24,7 +24,6 @@
 * Expanding the csproj file with `dotnet msbuild /pp:fullproject.xml`
 * Understanding and modifying the SDK props and targets.
 
-
 ## Creating the VotingApp library using TDD
 * Basic tips and tricks for using VSCode
     * [VSCode Windows Shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
@@ -34,23 +33,38 @@
 * Create xunit project
 * Install and understand how the C# extension (aka as [Omnisharp](http://www.omnisharp.net/) project) works.
 * Run and debug unit tests.
-* Extend the dotnet cli tooling. [DotNetTools](https://github.com/aspnet/DotNetTools) enabling live testing with `donet watch test`
+* Extend the dotnet cli tooling. 
+    *  [DotNetTools](https://github.com/aspnet/DotNetTools) for live testing with `donet watch test`
 * Create classlib project.
 * Map the dotnet cli commands to your keyboard thanks to VSCode and `tasks.json`
 * Use a [sln](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln) file for better project management.
 
 ## Creating the VotingApp Console Client
+* Use the debugger and understand the `launch.json` file.
+* [Target .net core and .net framework](https://docs.microsoft.com/en-us/dotnet/standard/frameworks)
+* [Introducing .net standard](https://docs.microsoft.com/en-us/dotnet/standard/library)
+    *   Reference assemblies
+    *   Implementation assemblies
+    *   Facade assemblies (aka type forwarding)  
+*  Target different frameworks in the context of the votinapp for better understanding of .net standard.
 
-## Publishing
-*   Portable
-*   Self contained
-*   Use docker as linux environment for testing published outputs.
+## Publishing the VotingApp Console in different frameworks and runtimes
+*   [Portable vs Self contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/index)
+*   [Runtime identifiers](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
+*   [.NET Core native prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)
+*   Use windows, macosx and docker (for linux runtime) for testing different published outputs.
 
 ## Creating the ASP.NET Core VotingApp.Api  
 * [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
-*  WebSockets
+* Use the debugger and understand the `launch.json` file.
+*  Using websockets for realtime voting.
 
-## Upgrading to .NET Core 2.0 Preview 1
+## Upgrading the VotingApp.Api to .NET Core 2.0 Preview 1
 *   What's new?
+*   `global.json` file
+*   New netcoreapp2.0 and netstandard2.0 packages
+    *   Introducing `netstandard.dll` reference assembly
+    *   Reuse existing .net framework libs thanks to the `mscorlib.dll` facade assembly
+*   New ASP .NET Core All package and the storage folder.
+*   New default builder and default configuration for cleaner `Startup` class.
 
-## Desmitifying NET Standard
