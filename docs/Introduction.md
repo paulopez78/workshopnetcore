@@ -5,7 +5,6 @@
 * [Visual Studio Code](https://code.visualstudio.com/) with C# extension 
 * [Docker CE (edge version)](https://www.docker.com/community-edition#/download)
 
-
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
 * [SDK architecture](https://docs.microsoft.com/en-us/dotnet/core/tools/cli-msbuild-architecture)
@@ -28,7 +27,6 @@
 * Basic tips and tricks for using VSCode
     * [VSCode Windows Shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
     * [VSCode Mac Shortcust](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
-
 * Use integrated terminal for running dotnet cli commands.
 * Create xunit project
 * Install and understand how the C# extension (aka as [Omnisharp](http://www.omnisharp.net/) project) works.
@@ -56,7 +54,7 @@
 
 ## Creating the ASP.NET Core VotingApp.Api  
 * [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
-* Use the debugger and understand the `launch.json` file.
+*  Use the debugger and understand the `launch.json` file.
 *  Using websockets for realtime voting.
 
 ## Upgrading the VotingApp.Api to .NET Core 2.0 Preview 1
