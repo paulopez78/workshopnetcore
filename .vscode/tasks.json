@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/votingapp.sln"
+                "${workspaceRoot}/workshopnetcore.sln"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
@@ -15,21 +15,21 @@
         {
             "taskName": "restore",
             "args": [
-                "${workspaceRoot}/votingapp.sln"
+                "${workspaceRoot}/workshopnetcore.sln"
             ],
             "problemMatcher": "$msCompile"
         },
         {
             "taskName": "clean",
             "args": [
-                "${workspaceRoot}/votingapp.sln"
+                "${workspaceRoot}/workshopnetcore.sln"
             ],
             "problemMatcher": "$msCompile"
         },
         {
             "taskName": "test",
             "args": [
-                "${workspaceRoot}/VotingApp.Tests/VotingApp.Tests.csproj"
+                "${workspaceRoot}/test/VotingApp.Tests/VotingApp.Tests.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
