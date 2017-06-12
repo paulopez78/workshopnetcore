@@ -43,7 +43,7 @@
 * [Introducing .net standard](https://docs.microsoft.com/en-us/dotnet/standard/library)
     *   Reference assemblies
     *   Implementation assemblies
-    *   Facade assemblies (aka type forwarding)  
+    *   Facade assemblies (aka [type forwarding](https://blogs.msdn.microsoft.com/davbr/2009/09/30/type-forwarding/))  
 *  Target different frameworks in the context of the votinapp for better understanding of .net standard.
 
 ## Publishing the VotingApp Console in different frameworks and runtimes
@@ -55,14 +55,31 @@
 ## Creating the ASP.NET Core VotingApp.Api  
 * [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 *  Use the debugger and understand the `launch.json` file.
+*  Using [static files](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files) for building the UI.
 *  Using websockets for realtime voting.
 
 ## Upgrading the VotingApp.Api to .NET Core 2.0 Preview 1
 *   What's new?
-*   `global.json` file
+*   Pinning your SDK with `global.json` file
 *   New netcoreapp2.0 and netstandard2.0 packages
     *   Introducing `netstandard.dll` reference assembly
     *   Reuse existing .net framework libs thanks to the `mscorlib.dll` facade assembly
 *   New ASP .NET Core All package and the storage folder.
 *   New default builder and default configuration for cleaner `Startup` class.
 
+## Running the VotingApp with Docker
+*   What is a docker container and a docker image
+*   Docker basic commands
+    * `docker build`
+    * `dotnet run`
+*   [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+*   Official .NET Core Microsoft Images
+    * [dotnet core images](https://hub.docker.com/r/microsoft/dotnet/)
+    * [aspnet core build images](https://hub.docker.com/r/microsoft/aspnetcore-build/)
+    * [aspnet core runtime images](https://hub.docker.com/r/microsoft/aspnetcore/)
+
+## Building and Deploying the VotingApp with Docker Compose
+*   [Docker compose](https://docs.docker.com/compose/) for development and continuous integration and deployment workflows.
+*   [Multistage docker file for building runtime images](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)
+*   Debugging with docker, vscode and .net core
+*   Docker swarm, Docker Cloud and Docker for Azure.
