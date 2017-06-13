@@ -37,14 +37,14 @@
 * Map the dotnet cli commands to your keyboard thanks to VSCode and `tasks.json`
 * Use a [sln](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln) file for better project management.
 
-## Creating the VotingApp Console Client
+## Creating the VotingApp Console Client (Windows machine required)
 * Use the debugger and understand the `launch.json` file.
 * [Target .net core and .net framework](https://docs.microsoft.com/en-us/dotnet/standard/frameworks)
 * [Introducing .net standard](https://docs.microsoft.com/en-us/dotnet/standard/library)
     *   Reference assemblies
     *   Implementation assemblies
     *   Facade assemblies (aka [type forwarding](https://blogs.msdn.microsoft.com/davbr/2009/09/30/type-forwarding/))  
-*  Target different frameworks in the context of the votinapp for better understanding of .net standard.
+*  Target different frameworks in the context of the votinapp for better understanding of netstandard.
 
 ## Publishing the VotingApp Console in different frameworks and runtimes
 *   [Portable vs Self contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/index)
@@ -83,3 +83,9 @@
 *   [Multistage docker file for building runtime images](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)
 *   Debugging with docker, vscode and .net core
 *   Docker swarm, Docker Cloud and Docker for Azure.
+
+## Refactoring towards EventSourcing, CQRS and microservices
+*  [Sample voting app with eventsourcing architecture](https://github.com/paulopez78/votingapp)
+*   Understanding event sourcing and CQRS concepts.
+*   Creating projections of your events stream.
+*   Using a helper [event sourcing](https://github.com/netcorebcn/easyeventsourcing) nuget package.
