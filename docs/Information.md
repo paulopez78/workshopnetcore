@@ -64,8 +64,8 @@
 *   New netcoreapp2.0 and netstandard2.0 packages
     *   Introducing `netstandard.dll` reference assembly
     *   Reuse existing .net framework libs thanks to the `mscorlib.dll` facade assembly
-*   New ASP .NET Core All package and the storage folder.
-*   New default builder and default configuration for cleaner `Startup` class.
+*   [New ASP .NET Core All package and the storage folder](https://andrewlock.net/the-microsoft-aspnetcore-all-metapackage-is-huge-and-thats-awesome-thanks-to-the-net-core-runtime-store-2)
+*   [New default builder and default configuration](https://andrewlock.net/exploring-program-and-startup-in-asp-net-core-2-preview1-2/)
 
 ## Running the VotingApp with Docker
 *   What is a docker container and a docker image
