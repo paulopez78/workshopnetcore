@@ -32,6 +32,13 @@
                 "${workspaceRoot}/test/VotingApp.Tests/VotingApp.Tests.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "publish",
+            "args": [
+                "${workspaceRoot}/workshopnetcore.sln","-c","Release"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }
