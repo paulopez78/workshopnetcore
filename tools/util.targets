@@ -1,12 +1,12 @@
  <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-       <Target Name="SuperClean" AfterTargets="Clean">
+       <Target Name="superclean" AfterTargets="Clean">
             <Message Importance="High" Text="Removing bin and obj folders for project $(ProjectName)" />
             <RemoveDir Directories="bin" />
             <RemoveDir Directories="obj" />
        </Target>
-       <Target Name="Full">
+       <Target Name="fullbuild">
          <Message Importance="High" Text="Cleaning, Restoring and Building project $(ProjectName)" />
-         <CallTarget Targets="clean"/>
+         <CallTarget Targets="superclean"/>
          <CallTarget Targets="restore"/>
           <CallTarget Targets="build"/>
        </Target>       
