@@ -5,6 +5,11 @@
 * [Visual Studio Code](https://code.visualstudio.com/) with C# extension 
 * [Docker CE (edge version)](https://www.docker.com/community-edition#/download)
 
+Optional
+* Windows10 machine with [Visual Studio 2017 CE](https://www.visualstudio.com/free-developer-offers/)
+* [dotPeek](https://www.jetbrains.com/decompiler/)  
+* [ILSpy](http://ilspy.net/)
+
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
 * [SDK architecture](https://docs.microsoft.com/en-us/dotnet/core/tools/cli-msbuild-architecture)
