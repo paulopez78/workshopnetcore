@@ -5,9 +5,9 @@
     "args": [],
     "tasks": [
         {
-            "taskName": "build",
+            "taskName": "msbuild",
             "args": [
-                "${workspaceRoot}/workshopnetcore.sln"
+                "/t:full", "${workspaceRoot}/workshopnetcore.sln"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
