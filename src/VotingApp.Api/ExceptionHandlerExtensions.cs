@@ -22,7 +22,9 @@ namespace VotingApp.Api
                             context.Response.ContentType = "application/json";
 
                             var result = "";
-                            if (error.Error is InvalidOperationException || error.Error is ArgumentNullException)
+                            if (error.Error is InvalidOperationException 
+                            || error.Error is ArgumentNullException
+                            || error.Error is ArgumentException)
                             {
                                 result = JsonConvert.SerializeObject(new { error = error.Error.Message });
                             }

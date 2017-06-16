@@ -33,6 +33,14 @@ namespace VotingApp.Tests
         }
 
         [Fact]
+        public void Given_Topics_With_Same_Name_When_Start_Then_Exception()
+        {
+            var voting = new Voting();
+            Action action = () => voting.Start("DEV","DEV");
+            Assert.ThrowsAny<ArgumentException>(action);
+        }
+
+        [Fact]
         public void Given_StartedVoting_When_Vote_Then_VoteCreated()
         {
             var voting = new Voting();
