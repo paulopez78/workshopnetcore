@@ -37,9 +37,9 @@ namespace VotingApp.Api
 
         private object ExecuteCommand(Action action)
         {
-            var votingState = _voting.GetState();
-            
             action();
+            
+            var votingState = _voting.GetState();
             _wsPublisher.SendMessageToAllAsync(votingState);
             
             return votingState;
