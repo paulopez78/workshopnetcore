@@ -22,8 +22,22 @@ const votingApi = (function () {
 
     const subscribe = (action) => {
         const webSocket = new WebSocket(`ws://${window.location.host}/ws`);
-        webSocket.onmessage = msg => action(JSON.parse(msg.data))
+        webSocket.onmessage = msg => {
+            if (isJSON(msg.data)){
+                action(JSON.parse(msg.data));
+            }
+        }
+        
+        function isJSON(str) {
+            try {
+                JSON.parse(str);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
     }
+
 
     return {
         get,
