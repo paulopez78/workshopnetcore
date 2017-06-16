@@ -7,11 +7,13 @@ namespace VotingApp.Tests
     public class VotingAppTests
     {
         [Fact]
-        public void Given_2_Topics_When_Start_Then_VotingWithTopics_Created()
+        public void Given_Topics_When_Start_Then_Voting_With_Topics_Created()
         {
             var voting = new Voting();
-            voting.Start("DEV", "OPS");
-            Assert.Equal(voting.GetTopics(), new string[] { "DEV", "OPS" });
+            var topics = new string[] { "DEV", "OPS" };
+            voting.Start(topics);
+
+            Assert.Equal(voting.GetTopics(), topics);
         }
 
         [Fact]
@@ -20,6 +22,14 @@ namespace VotingApp.Tests
             var voting = new Voting();
             Action action = () => voting.Start(null);
             Assert.ThrowsAny<ArgumentNullException>(action);
+        }
+
+        [Fact]
+        public void Given_One_Topic_When_Start_Then_Exception()
+        {
+            var voting = new Voting();
+            Action action = () => voting.Start("DEV");
+            Assert.ThrowsAny<InvalidOperationException>(action);
         }
 
         [Fact]

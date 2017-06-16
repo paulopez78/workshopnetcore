@@ -17,10 +17,10 @@ namespace VotingApp.Api
         {
             _voting = voting;
             _wsPublisher = wsPublisher;
-        } 
+        }
 
         [HttpGet]
-        public object Get() => 
+        public object Get() =>
             _voting.GetState();
 
         [HttpPost]
@@ -28,18 +28,20 @@ namespace VotingApp.Api
             ExecuteCommand(() => _voting.Start(topics));
 
         [HttpPut]
-        public object Vote([FromBody]string topic) => 
+        public object Vote([FromBody]string topic) =>
             ExecuteCommand(() => _voting.Vote(topic));
 
         [HttpDelete]
-        public object Finish() => 
+        public object Finish() =>
             ExecuteCommand(_voting.Finish);
 
         private object ExecuteCommand(Action action)
         {
-            action();
             var votingState = _voting.GetState();
+            
+            action();
             _wsPublisher.SendMessageToAllAsync(votingState);
+            
             return votingState;
         }
     }
