@@ -13,6 +13,13 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "taskName": "build",
+            "args": [
+            ],
+            "isBuildCommand": false,
+            "problemMatcher": "$msCompile"
+        },
+        {
             "taskName": "restore",
             "args": [],
             "problemMatcher": "$msCompile"
