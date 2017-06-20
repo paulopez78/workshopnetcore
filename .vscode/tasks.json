@@ -7,23 +7,19 @@
         {
             "taskName": "msbuild",
             "args": [
-                "/t:fullbuild", "${workspaceRoot}/workshopnetcore.sln"
+                "/t:fullbuild"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
         },
         {
             "taskName": "restore",
-            "args": [
-                "${workspaceRoot}/workshopnetcore.sln"
-            ],
+            "args": [],
             "problemMatcher": "$msCompile"
         },
         {
             "taskName": "clean",
-            "args": [
-                "${workspaceRoot}/workshopnetcore.sln"
-            ],
+            "args": [],
             "problemMatcher": "$msCompile"
         },
         {
@@ -36,7 +32,8 @@
         {
             "taskName": "publish",
             "args": [
-                "${workspaceRoot}/workshopnetcore.sln","-c","Release"
+                "-c",
+                "Release"
             ],
             "problemMatcher": "$msCompile"
         }

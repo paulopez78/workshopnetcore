@@ -8,5 +8,5 @@
     <ProjectReference Include="..\VotingApp\VotingApp.csproj" />
   </ItemGroup>
 
-<Import Project="..\..\tools\util.targets"/>
+  <Import Project="..\..\tools\util.targets"/>
 </Project>
