@@ -24,23 +24,23 @@ namespace VotingApp.Api
             _voting.GetState();
 
         [HttpPost]
-        public object Start([FromBody]string[] topics) =>
-            ExecuteCommand(() => _voting.Start(topics));
+        public async Task<object> Start([FromBody]string[] topics) =>
+            await ExecuteCommand(() => _voting.Start(topics));
 
         [HttpPut]
-        public object Vote([FromBody]string topic) =>
-            ExecuteCommand(() => _voting.Vote(topic));
+        public async Task<object> Vote([FromBody]string topic) =>
+            await ExecuteCommand(() => _voting.Vote(topic));
 
         [HttpDelete]
-        public object Finish() =>
-            ExecuteCommand(_voting.Finish);
+        public async Task<object> Finish() =>
+            await ExecuteCommand(_voting.Finish);
 
-        private object ExecuteCommand(Action action)
+        private async Task<object> ExecuteCommand(Action action)
         {
             action();
             
             var votingState = _voting.GetState();
-            _wsPublisher.SendMessageToAllAsync(votingState);
+            await _wsPublisher.SendMessageToAllAsync(votingState);
             
             return votingState;
         }
