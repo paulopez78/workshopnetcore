@@ -7,13 +7,15 @@ namespace VotingApp.Tests
     public class VotingAppTests
     {
         [Fact]
-        public void Given_Topics_When_Start_Then_Voting_With_Topics_Created()
+        public void Given_Topics_When_Start_Then_Voting_With_Votes_Created()
         {
             var voting = new Voting();
-            var topics = new string[] { "DEV", "OPS" };
-            voting.Start(topics);
-
-            Assert.Equal(voting.Topics, topics);
+            voting.Start("DEV", "OPS");
+            Assert.Equal(voting.Votes, new Dictionary<string, int>
+            {
+                {"DEV", 0},
+                {"OPS", 0}
+            });
         }
 
         [Fact]
@@ -36,7 +38,7 @@ namespace VotingApp.Tests
         public void Given_Topics_With_Same_Name_When_Start_Then_Exception()
         {
             var voting = new Voting();
-            Action action = () => voting.Start("DEV","DEV");
+            Action action = () => voting.Start("DEV", "DEV");
             Assert.ThrowsAny<ArgumentException>(action);
         }
 

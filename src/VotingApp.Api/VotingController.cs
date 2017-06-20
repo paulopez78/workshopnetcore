@@ -37,11 +37,9 @@ namespace VotingApp.Api
 
         private async Task<object> ExecuteCommand(Action action)
         {
-            action();
-            
+            action();            
             var votingState = _voting.GetState();
             await _wsPublisher.SendMessageToAllAsync(votingState);
-            
             return votingState;
         }
     }

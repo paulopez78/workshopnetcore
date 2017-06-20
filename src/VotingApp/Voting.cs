@@ -10,11 +10,6 @@ namespace VotingApp
 
         public string Winner { get; private set; }
 
-        public string[] Topics 
-        {
-            get => Votes.Select(_ => _.Key).ToArray();
-        }
-
         public void Start(params string[] topics)
         {
             AssertValidTopics();

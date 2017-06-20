@@ -23,15 +23,15 @@ namespace VotingApp.Client
                     {
                         case "start":
                             voting.Start(parameters.Split(','));
-                            Console.WriteLine($"TOPICS: {string.Join(",", voting.Topics)}");
+                            Console.WriteLine($"Votes: {string.Join(",", voting.Votes)}");
                             break;
                         case "vote":
                             voting.Vote(parameters);
-                            Console.WriteLine($"VOTES: {string.Join(",", voting.Votes)}");
+                            Console.WriteLine($"Votes: {string.Join(",", voting.Votes)}");
                             break;
                         case "finish":
                             voting.Finish();
-                            Console.WriteLine($"WINNER: {voting.Winner}");
+                            Console.WriteLine($"Winner: {voting.Winner}");
                             return;
                         default:
                             break;
