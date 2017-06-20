@@ -14,20 +14,20 @@ namespace VotingApp.Client
                 try
                 {
                     Console.WriteLine("Introduce a command:");
+
                     var commandParts = Console.ReadLine().Split(':');
-                    var command = commandParts[0];
-                    var parameters = commandParts.Length > 1 ? commandParts[1] : null;
+                    var command = commandParts.First();
+                    var parameters = commandParts.Last();
 
                     switch (command)
                     {
                         case "start":
-                            voting.Start(parameters?.Split(','));
-                            Console.WriteLine($"TOPICS: {string.Join(",", voting.GetTopics())}");
+                            voting.Start(parameters.Split(','));
+                            Console.WriteLine($"TOPICS: {string.Join(",", voting.Topics)}");
                             break;
                         case "vote":
                             voting.Vote(parameters);
-                            var votes = string.Join(",", voting.Votes.Select(x => $"{x.Key}:{x.Value}"));
-                            Console.WriteLine($"VOTES: {votes}");
+                            Console.WriteLine($"VOTES: {string.Join(",", voting.Votes)}");
                             break;
                         case "finish":
                             voting.Finish();

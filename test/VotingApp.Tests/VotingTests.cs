@@ -13,7 +13,7 @@ namespace VotingApp.Tests
             var topics = new string[] { "DEV", "OPS" };
             voting.Start(topics);
 
-            Assert.Equal(voting.GetTopics(), topics);
+            Assert.Equal(voting.Topics, topics);
         }
 
         [Fact]
