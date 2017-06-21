@@ -2,7 +2,18 @@
     "version": "0.2.0",
     "configurations": [        
         {
-            "name": ".NET Core Launch (web)",
+            "name": "VotingApp (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}/src/VotingApp.Client/bin/Debug/netcoreapp1.1/VotingApp.Client.dll",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "stopAtEntry": false,
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "VotingApp (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
