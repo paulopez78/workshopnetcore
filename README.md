@@ -2,9 +2,11 @@
 
 Super simple real time sample voting app using .net core and docker.
 
-* run with [**docker**](https://www.docker.com/products/docker) from MacOS, Linux or Windows ([with bash](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide)) 
+* run with [**docker**](https://www.docker.com/products/docker) 
+  
+  from MacOS and Linux with ``.\run.sh`` 
 
-  ``.\run.sh`` 
+  from Windows with ``.\run.ps1`` 
     
   Open <http://localhost?admin> for voting app admin UI
   
