@@ -39,8 +39,20 @@ namespace VotingApp.Api
         {
             action();            
             var votingState = _voting.GetState();
-            await _wsPublisher.SendMessageToAllAsync(votingState);
+            await PublishState();
             return votingState;
+
+            async Task PublishState()
+            {
+                try
+                {
+                    await _wsPublisher.SendMessageToAllAsync(votingState);
+                }
+                catch(Exception)
+                {
+                    //Log
+                }
+            }
         }
     }
 }
