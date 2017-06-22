@@ -1,0 +1,13 @@
+
+version: "3.1"
+
+services:
+  app:
+    image: ${REGISTRY}votingapp:${TAG}
+    ports:
+      - 80:80
+    logging:
+      driver: "json-file"
+    deploy:
+      mode: replicated
+      replicas: 1
