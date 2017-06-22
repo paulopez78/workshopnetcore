@@ -16,7 +16,7 @@
             {
                 const isAdmin = window.location.search.indexOf('admin') !== -1;
                 if (isAdmin) {
-                    document.getElementById('votingCommands').style.display = 'flex'; 
+                    document.getElementById('votingCommands').style.visibility = 'visible'; 
                     addEventHandler('start',
                         () => votingApi.start(document.getElementById('topics').value.split(','))
                         .then(render));
@@ -35,10 +35,10 @@
                             ${topic}, votes: ${state.votes[topic]}
                         </div>`;
                 }
-                for (let topic in state.votes) {
-                    addEventHandler(topic, 
-                        () => votingApi.vote(topic)
-                            .then(render));
+                for (var topic in state.votes) 
+                {
+                    (t => addEventHandler(t, () => votingApi.vote(t).then(render)))
+                    (topic);
                 }
             }
         }

@@ -90,6 +90,10 @@ h1 {
     background-color: #fff;
     text-transform: uppercase;
     cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .topic.selected {
