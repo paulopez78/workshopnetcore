@@ -41,7 +41,7 @@ Optional
 * Extend the dotnet cli tooling. 
     *  [DotNetTools](https://github.com/aspnet/DotNetTools) for live testing with `donet watch test`
 * Create classlib project.
-* Map the dotnet cli commands to your keyboard thanks to VSCode and `tasks.json`
+* Map the dotnet cli commands to your keyboard thanks to VSCode and [`tasks.json`](https://code.visualstudio.com/docs/editor/tasks)
 * Use a [sln](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln) file for better project management.
 
 ## Creating the VotingApp Console Client (Windows machine required)
