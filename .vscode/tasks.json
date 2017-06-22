@@ -5,9 +5,10 @@
     "args": [],
     "tasks": [
         {
-            "taskName": "msbuild",
+            "taskName": "rebuild",
+            "suppressTaskName":true,
             "args": [
-                "/t:fullbuild"
+                "msbuild", "/t:fullbuild"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
