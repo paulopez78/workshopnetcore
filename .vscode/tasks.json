@@ -17,24 +17,24 @@
             "args": [
             ],
             "isBuildCommand": false,
-            "problemMatcher": "$msCompile"
+            "showOutput": "silent"
         },
         {
             "taskName": "restore",
             "args": [],
-            "problemMatcher": "$msCompile"
+            "showOutput": "silent"
         },
         {
             "taskName": "clean",
             "args": [],
-            "problemMatcher": "$msCompile"
+            "showOutput": "silent"
         },
         {
             "taskName": "test",
             "args": [
                 "${workspaceRoot}/test/VotingApp.Tests/VotingApp.Tests.csproj"
             ],
-            "problemMatcher": "$msCompile"
+            "showOutput": "silent"
         },
         {
             "taskName": "publish",
@@ -42,7 +42,7 @@
                 "-c",
                 "Release"
             ],
-            "problemMatcher": "$msCompile"
+            "showOutput": "silent"
         }
     ]
 }
