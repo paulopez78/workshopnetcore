@@ -6,28 +6,24 @@
     "tasks": [
         {
             "taskName": "rebuild",
-            "suppressTaskName":true,
+            "suppressTaskName": true,
             "args": [
-                "msbuild", "/t:fullbuild"
+                "msbuild",
+                "/t:fullbuild"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
         },
         {
             "taskName": "build",
-            "args": [
-            ],
-            "isBuildCommand": false,
             "showOutput": "silent"
         },
         {
             "taskName": "restore",
-            "args": [],
             "showOutput": "silent"
         },
         {
             "taskName": "clean",
-            "args": [],
             "showOutput": "silent"
         },
         {
