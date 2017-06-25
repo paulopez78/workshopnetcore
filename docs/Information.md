@@ -97,3 +97,19 @@ Optional
 *   Understanding event sourcing and CQRS concepts.
 *   Creating projections of your events stream.
 *   Using a helper [event sourcing](https://github.com/netcorebcn/easyeventsourcing) nuget package.
+
+## More Awesome Resources
+* <https://blogs.msdn.microsoft.com/dotnet/2014/12/04/introducing-net-core/>
+* <https://blogs.msdn.microsoft.com/dotnet/2016/02/10/porting-to-net-core/>
+* <https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard/>
+* <https://www.youtube.com/playlist?list=PLRAdsfhKI4OWx321A_pr-7HhRNk7wOLLY&app=desktop>
+* <http://adamralph.com/netstandard-deck/>
+* <https://andrewlock.net/understanding-net-core-netstandard-and-asp-net-core/>
+* <https://github.com/davidfowl/NetStandard>
+* <https://channel9.msdn.com/Shows/On-NET/Immo-Landwerth-Net-Standard>
+* <https://channel9.msdn.com/Blogs/Seth-Juarez/What-is-NET-Standard>
+* <https://channel9.msdn.com/Events/ASPNET-Events/ASPNET-Fall-Sessions/Class-Libraries>
+* <https://channel9.msdn.com/Blogs/dotnet/CoreCLR-is-now-open-source-on-GitHub?ocid=player>
+* <https://vimeo.com/213913286>
+* <https://www.slideshare.net/citizenmatt/the-howdareyoucallmeanidiots-guide-to-the-net-standard-ndc-london-2017>
+* <https://github.com/dotnet/standard/blob/master/docs/netstandard-20/packaging.md>
