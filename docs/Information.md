@@ -9,6 +9,7 @@ Optional
 * Windows10 machine with [Visual Studio 2017 CE](https://www.visualstudio.com/free-developer-offers/)
 * [dotPeek](https://www.jetbrains.com/decompiler/)  
 * [ILSpy](http://ilspy.net/)
+* [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
 
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
