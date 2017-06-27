@@ -4,6 +4,7 @@
 * [.NET Core SDK](https://www.microsoft.com/net/download/core)
 * [Visual Studio Code](https://code.visualstudio.com/) with C# extension 
 * [Docker CE (edge version)](https://www.docker.com/community-edition#/download)
+* Start docker and pull microsof/dotnet images with `./setup.sh` or `./setup.ps1`
 
 Optional
 * Windows10 machine with [Visual Studio 2017 CE](https://www.visualstudio.com/free-developer-offers/)
