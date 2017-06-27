@@ -19,14 +19,14 @@
             "preLaunchTask": "build",
             "program": "${workspaceRoot}/src/VotingApp.Api/bin/Debug/netcoreapp1.1/VotingApp.Api.dll",
             "args": [],
-            "cwd": "${workspaceRoot}",
+            "cwd": "${workspaceRoot}/src/VotingApp.Api",
             "stopAtEntry": false,
             "launchBrowser": {
                 "enabled": true,
-                "args": "${auto-detect-url}/swagger",
+                "args": "${auto-detect-url}/?admin",
                 "windows": {
                     "command": "cmd.exe",
-                    "args": "/C start ${auto-detect-url}"
+                    "args": "/C start ${auto-detect-url}/?admin"
                 },
                 "osx": {
                     "command": "open"
