@@ -5,41 +5,28 @@
     "args": [],
     "tasks": [
         {
-            "taskName": "rebuild",
+            "taskName": "fullbuild",
             "suppressTaskName": true,
             "args": [
                 "msbuild",
                 "/t:fullbuild"
-            ],
-            "isBuildCommand": true,
-            "problemMatcher": "$msCompile"
+            ]
         },
         {
             "taskName": "build",
-            "showOutput": "silent"
+            "isBuildCommand": true
         },
         {
-            "taskName": "restore",
-            "showOutput": "silent"
+            "taskName": "restore"
         },
         {
-            "taskName": "clean",
-            "showOutput": "silent"
+            "taskName": "clean"
         },
         {
             "taskName": "test",
             "args": [
                 "${workspaceRoot}/test/VotingApp.Tests/VotingApp.Tests.csproj"
-            ],
-            "showOutput": "silent"
-        },
-        {
-            "taskName": "publish",
-            "args": [
-                "-c",
-                "Release"
-            ],
-            "showOutput": "silent"
+            ]
         }
     ]
 }
