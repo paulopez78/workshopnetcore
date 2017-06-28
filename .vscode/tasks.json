@@ -27,6 +27,13 @@
             "args": [
                 "${workspaceRoot}/test/VotingApp.Tests/VotingApp.Tests.csproj"
             ]
+        },
+        {
+            "taskName": "publish",
+            "args": [
+                "-o",
+                "bin/build"
+            ]
         }
     ]
 }

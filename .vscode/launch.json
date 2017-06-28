@@ -1,6 +1,6 @@
 {
     "version": "0.2.0",
-    "configurations": [        
+    "configurations": [
         {
             "name": "VotingApp (console)",
             "type": "coreclr",
@@ -34,6 +34,26 @@
                 "linux": {
                     "command": "xdg-open"
                 }
+            }
+        },
+        {
+            "name": "VotingApp (Docker)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "publish",
+            "cwd": "/app",
+            "program": "/app/VotingApp.Api.dll",
+            "sourceFileMap": {
+                "/app": "${workspaceRoot}/src/VotingApp.Api"
+            },
+            "pipeTransport": {
+                "debuggerPath": "/vsdbg/vsdbg",
+                "pipeProgram": "/bin/bash",
+                "pipeCwd": "${workspaceRoot}",
+                "pipeArgs": [
+                    "-c",
+                    "docker exec -i votingapp /vsdbg/vsdbg --interpreter=vscode"
+                ]
             }
         },
         {
