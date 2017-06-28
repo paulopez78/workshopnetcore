@@ -6,7 +6,7 @@ namespace VotingApp.Lib
 {
     public class Voting
     {
-        public IDictionary<string, int> Votes { get; private set; }
+        public Dictionary<string, int> Votes { get; private set; }
 
         public string Winner { get; private set; }
 
