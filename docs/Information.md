@@ -70,8 +70,8 @@ Optional
 *  Using [static files](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files) for building the UI.
 *  Using websockets for realtime voting.
 
-## Upgrading the VotingApp.Api to .NET Core 2.0 Preview 1
-*   What's new?
+## Upgrading the VotingApp.Api to .NET Core 2.0 Preview 2
+*   What's new in [.NET Core 2.0](https://www.microsoft.com/net/core/preview#windowscmd) ?
 *   Pinning your SDK with `global.json` file
 *   New netcoreapp2.0 and netstandard2.0 packages
     *   Introducing `netstandard.dll` reference assembly
