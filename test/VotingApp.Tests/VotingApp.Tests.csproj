@@ -15,7 +15,7 @@
   </ItemGroup>
   
    <ItemGroup>
-     <ProjectReference Include="..\..\src\VotingApp\VotingApp.csproj" />
+     <ProjectReference Include="..\..\src\VotingApp.Lib\VotingApp.Lib.csproj" />
    </ItemGroup>
 
   <Import Project="..\..\tools\util.targets"/>

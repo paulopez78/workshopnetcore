@@ -3,7 +3,7 @@ FROM microsoft/aspnetcore-build AS build-image
 COPY tools tools
 
 # copy shared libraries
-COPY src/VotingApp /src/VotingApp
+COPY src/VotingApp.Lib /src/VotingApp.Lib
 
 # restore packages creating caching layer 
 WORKDIR /test/VotingApp.Tests

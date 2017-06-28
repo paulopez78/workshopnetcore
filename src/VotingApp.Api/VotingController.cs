@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyWebSockets;
 using Microsoft.AspNetCore.Mvc;
+using VotingApp.Lib;
 
 namespace VotingApp.Api
 {

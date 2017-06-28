@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using VotingApp.Lib;
 using Xunit;
 
 namespace VotingApp.Tests
