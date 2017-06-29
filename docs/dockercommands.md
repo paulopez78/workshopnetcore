@@ -22,7 +22,7 @@
         --workdir /app \
         --name votingapp \
         microsoft/dotnet:sdk \
-        bash -c "dotnet restore && dotnet run -p VotingApp.Api/*.csproj"
+        bash -c "dotnet restore && dotnet run -p src/VotingApp.Api/*.csproj"
     ```
     * **Powershell**
     ```powershell
@@ -32,7 +32,7 @@
         --workdir /app `
         --name votingapp `
         microsoft/dotnet:sdk `
-        bash -c "dotnet restore && dotnet run -p VotingApp.Api/*.csproj"
+        bash -c "dotnet restore && dotnet run -p src/VotingApp.Api/*.csproj"
     ```
 * Publish `VotingApp.Api` using image `microsoft/aspnetcore-build`
     * **Bash**
@@ -42,7 +42,7 @@
         --workdir /app \
         --name votingapp-build \
         microsoft/aspnetcore-build \
-        bash -c "dotnet restore && dotnet publish VotingApp.Api/*.csproj -o build"
+        bash -c "dotnet restore && dotnet publish src/VotingApp.Api/*.csproj -o build"
     ```
     * **Powershell**
     ```powershell
@@ -51,5 +51,5 @@
         --workdir /app `
         --name votingapp-build `
         microsoft/aspnetcore-build `
-        bash -c "dotnet restore && dotnet publish VotingApp.Api/*.csproj -o build"
+        bash -c "dotnet restore && dotnet publish src/VotingApp.Api/*.csproj -o build"
     ```

@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  votingapi:
+    image: microsoft/aspnetcore-build
+    volumes:
+      - .././:/app
+    working_dir: /app
+    container_name: votingapp-build

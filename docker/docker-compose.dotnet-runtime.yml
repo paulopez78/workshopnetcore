@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  votingapi:
+    image: microsoft/aspnetcore
+    ports:
+      - 5000:80
+    environment:
+      - ASPNETCORE_URLS=https://*:80
+    volumes:
+      - ../build/:/app
+    working_dir: /app
+    container_name: votingapp
+    command: dotnet ./VotingApp.Api.dll

@@ -1,0 +1,6 @@
+version: "3.3"
+
+services:
+  votingapi:
+    working_dir: /app/test/VotingApp.Tests/
+    command: bash -c "dotnet restore && dotnet test"
