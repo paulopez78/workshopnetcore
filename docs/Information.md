@@ -102,6 +102,14 @@ Optional
 *   Creating projections of your events stream.
 *   Using a helper [event sourcing](https://github.com/netcorebcn/easyeventsourcing) nuget package.
 
+## File References
+* [Voting Tests](https://github.com/paulopez78/workshopnetcore/blob/master/test/VotingApp.Tests/VotingTests.cs)
+* [Voting Object](https://github.com/paulopez78/workshopnetcore/blob/master/src/VotingApp.Lib/Voting.cs)
+* [Util targets](https://github.com/paulopez78/workshopnetcore/blob/master/tools/util.targets)
+* [Console Client](https://github.com/paulopez78/workshopnetcore/blob/master/src/VotingApp.Client/Program.cs)
+* [Tasks Json](https://github.com/paulopez78/workshopnetcore/blob/master/.vscode/tasks.json)
+* [Launch Json](https://github.com/paulopez78/workshopnetcore/blob/master/.vscode/launch.json)
+
 ## More Awesome Resources
 * <https://blogs.msdn.microsoft.com/dotnet/2014/12/04/introducing-net-core/>
 * <https://blogs.msdn.microsoft.com/dotnet/2016/02/10/porting-to-net-core/>
