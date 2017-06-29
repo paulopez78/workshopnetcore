@@ -107,6 +107,7 @@ Optional
 * [Voting Object](https://github.com/paulopez78/workshopnetcore/blob/master/src/VotingApp.Lib/Voting.cs)
 * [Util targets](https://github.com/paulopez78/workshopnetcore/blob/master/tools/util.targets)
 * [Console Client](https://github.com/paulopez78/workshopnetcore/blob/master/src/VotingApp.Client/Program.cs)
+* [Voting Controller](https://github.com/paulopez78/workshopnetcore/blob/master/src/VotingApp.Api/VotingController.cs)
 * [Tasks Json](https://github.com/paulopez78/workshopnetcore/blob/master/.vscode/tasks.json)
 * [Launch Json](https://github.com/paulopez78/workshopnetcore/blob/master/.vscode/launch.json)
 
