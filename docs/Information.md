@@ -45,7 +45,6 @@ Optional
 * Create classlib project.
 * Map the dotnet cli commands to your keyboard thanks to VSCode and [`tasks.json`](https://code.visualstudio.com/docs/editor/tasks)
 * Use a [sln](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln) file for better project management.
-* Checkpoint: `git clone --branch unit-test https://github.com/paulopez78/workshopnetcore.git`
 
 ## Creating the VotingApp Console Client (Windows machine required)
 * Use the debugger and understand the `launch.json` file.
@@ -56,7 +55,6 @@ Optional
     *   Facade assemblies (aka [type forwarding](https://blogs.msdn.microsoft.com/davbr/2009/09/30/type-forwarding/))  
 *  Target different frameworks in the context of the votinapp for better understanding of netstandard.
 * [netstandard analogy](https://github.com/paulopez78/dotnet-target-frameworks)
-* Checkpoint: `git clone --branch console-client https://github.com/paulopez78/workshopnetcore.git`
 
 ## Publishing the VotingApp Console in different frameworks and runtimes
 *   [Portable vs Self contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/index)
@@ -69,6 +67,7 @@ Optional
 *  Use the debugger and understand the `launch.json` file.
 *  Using [static files](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files) for building the UI.
 *  Using websockets for realtime voting.
+* Checkpoint: `git clone --branch start-session https://github.com/paulopez78/workshopnetcore.git`
 
 ## Upgrading the VotingApp.Api to .NET Core 2.0 Preview 2
 *   What's new in [.NET Core 2.0](https://www.microsoft.com/net/core/preview#windowscmd) ?
