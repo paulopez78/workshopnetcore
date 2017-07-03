@@ -63,11 +63,11 @@ Optional
 *   Use windows, macosx and docker (for linux runtime) for testing different published outputs.
 
 ## Creating the ASP.NET Core VotingApp.Api  
+*  Checkpoint: `git clone --branch start-session https://github.com/paulopez78/workshopnetcore.git`
 * [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 *  Use the debugger and understand the `launch.json` file.
 *  Using [static files](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files) for building the UI.
 *  Using websockets for realtime voting.
-* Checkpoint: `git clone --branch start-session https://github.com/paulopez78/workshopnetcore.git`
 
 ## Upgrading the VotingApp.Api to .NET Core 2.0 Preview 2
 *   What's new in [.NET Core 2.0](https://www.microsoft.com/net/core/preview#windowscmd) ?
@@ -79,6 +79,7 @@ Optional
 *   [New default builder and default configuration](https://andrewlock.net/exploring-program-and-startup-in-asp-net-core-2-preview1-2/)
 
 ## Running the VotingApp with Docker
+*   Checkpoint: `git clone --branch docker https://github.com/paulopez78/workshopnetcore.git`
 *   What is a docker container and a docker image
 *   Docker basic commands
     * `docker build`
