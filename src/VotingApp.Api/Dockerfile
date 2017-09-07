@@ -1,7 +1,5 @@
 FROM microsoft/aspnetcore-build AS build-image
 
-COPY tools tools
-
 # copy shared libraries
 COPY src/VotingApp.Lib /src/VotingApp.Lib
 
