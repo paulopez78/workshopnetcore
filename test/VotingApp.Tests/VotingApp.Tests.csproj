@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +17,4 @@
    <ItemGroup>
      <ProjectReference Include="..\..\src\VotingApp.Lib\VotingApp.Lib.csproj" />
    </ItemGroup>
-
-  <Import Project="..\..\tools\util.targets"/>
 </Project>
