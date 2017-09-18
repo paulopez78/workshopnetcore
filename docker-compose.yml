@@ -2,9 +2,9 @@ version: "3.3"
 
 services:
   app:
-    image: ${REGISTRY}votingapp:${TAG}
+    image: ${REGISTRY-paulopez/}votingapp:${TAG-latest}
     build:
-      context: ${BUILD_CONTEXT}
+      context: ${BUILD_CONTEXT-.}
     container_name: votingapp
     ports:
       - 80:80
