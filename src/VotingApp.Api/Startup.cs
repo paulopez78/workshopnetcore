@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
-using VotingApp.Lib;
+using VotingApp.Domain;
 
 namespace VotingApp.Api
 {
