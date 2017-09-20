@@ -3,19 +3,28 @@
 ## Setup and installation:
 * [.NET Core SDK](https://www.microsoft.com/net/download/core)
 * [Visual Studio Code](https://code.visualstudio.com/) with C# extension 
-* [Docker CE (edge version)](https://www.docker.com/community-edition#/download)
-* Start docker and pull microsof/dotnet images with `./setup.sh` or `./setup.ps1`
+* [Visual Studio 2017 CE or Enterprise](https://www.visualstudio.com/free-developer-offers/)
+* [Docker CE](https://www.docker.com/community-edition#/download)
+* Start docker and pull [microsoft images](https://hub.docker.com/r/microsoft/dotnet/)
+    
+    ```bash
+    docker pull microsoft/dotnet:sdk
+    docker pull microsoft/dotnet:runtime
+    docker pull microsoft/dotnet:runtime-deps
+    docker pull microsoft/aspnetcore
+    docker pull microsoft/aspnetcore-build
+    ```
 
-Optional
-* Windows10 machine with [Visual Studio 2017 CE](https://www.visualstudio.com/free-developer-offers/)
-* [dotPeek](https://www.jetbrains.com/decompiler/)  
+Optional Requirements:
+* [dotPeek](https://www.jetbrains.com/decompiler/)
 * [ILSpy](http://ilspy.net/)
 * [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
+* [MSBuil StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
 
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
 * [SDK architecture](https://docs.microsoft.com/en-us/dotnet/core/tools/cli-msbuild-architecture)
-* Introduction to donet CLI basic commands and new SDK architecture based on msbuild targets 
+* Introduction to donet driver and dotnet CLI basic commands and new SDK architecture based on msbuild targets 
     * `dotnet --info`
     * `dotnet --version`
     * `dotnet new`
@@ -36,7 +45,7 @@ Optional
 * Basic tips and tricks for using VSCode
     * [VSCode Windows Shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
     * [VSCode Mac Shortcust](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
-* Use integrated terminal for running dotnet cli commands.
+* Use VSCode integrated terminal for running dotnet cli commands.
 * Create xunit project
 * Install and understand how the C# extension (aka as [Omnisharp](http://www.omnisharp.net/) project) works.
 * Run and debug unit tests.
@@ -46,7 +55,8 @@ Optional
 * Map the dotnet cli commands to your keyboard thanks to VSCode and [`tasks.json`](https://code.visualstudio.com/docs/editor/tasks)
 * Use a [sln](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-sln) file for better project management.
 
-## Creating the VotingApp Console Client (Windows machine required)
+## Creating the ASP.NET Core VotingAPP API
+* [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 * Use the debugger and understand the `launch.json` file.
 * [Target .net core and .net framework](https://docs.microsoft.com/en-us/dotnet/standard/frameworks)
 * [Introducing .net standard](https://docs.microsoft.com/en-us/dotnet/standard/library)
@@ -54,27 +64,24 @@ Optional
     *   Implementation assemblies
     *   Facade assemblies (aka [type forwarding](https://blogs.msdn.microsoft.com/davbr/2009/09/30/type-forwarding/))  
 *  Target different frameworks in the context of the votinapp for better understanding of netstandard.
-* [netstandard analogy](https://github.com/paulopez78/dotnet-target-frameworks)
+* [netstandard](https://www.slideshare.net/PauLpez3/demystifying-net-standard-77852581)
 
-## Publishing the VotingApp Console in different frameworks and runtimes
+## Publishing the VotingApp API in different frameworks and runtimes
 *   [Portable vs Self contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/index)
 *   [Runtime identifiers](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
 *   [.NET Core native prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)
 *   Use windows, macosx and docker (for linux runtime) for testing different published outputs.
 
-## Creating the ASP.NET Core VotingApp.Api  
-*  Checkpoint: `git clone --branch start-session https://github.com/paulopez78/workshopnetcore.git`
-* [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
-*  Use the debugger and understand the `launch.json` file.
+## Adding UI and Websockets to the ASP.NET Core VotingApp
 *  Using [static files](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files) for building the UI.
 *  Using websockets for realtime voting.
 
-## Upgrading the VotingApp.Api to .NET Core 2.0 Preview 2
-*   What's new in [.NET Core 2.0](https://www.microsoft.com/net/core/preview#windowscmd) ?
+## Upgrading the VotingApp.Api to .NET Core 2.0
+*   What's new in .NET Core 2.0?
 *   Pinning your SDK with `global.json` file
 *   New netcoreapp2.0 and netstandard2.0 packages
     *   Introducing `netstandard.dll` reference assembly
-    *   Reuse existing .net framework libs thanks to the `mscorlib.dll` facade assembly
+    *   Reuse existing .net framewor libs thanks to the `mscorlib.dll` facade assembly
 *   [New ASP .NET Core All package and the storage folder](https://andrewlock.net/the-microsoft-aspnetcore-all-metapackage-is-huge-and-thats-awesome-thanks-to-the-net-core-runtime-store-2)
 *   [New default builder and default configuration](https://andrewlock.net/exploring-program-and-startup-in-asp-net-core-2-preview1-2/)
 
@@ -94,22 +101,13 @@ Optional
 *   [Docker compose](https://docs.docker.com/compose/) for development and continuous integration and deployment workflows.
 *   [Multistage docker file for building runtime images](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)
 *   Debugging with docker, vscode and .net core
-*   Docker swarm, Docker Cloud and Docker for Azure.
+*   Visual Studio Docker Support
 
 ## Refactoring towards EventSourcing, CQRS and microservices
 *  [Sample voting app with eventsourcing architecture](https://github.com/paulopez78/votingapp)
 *   Understanding event sourcing and CQRS concepts.
 *   Creating projections of your events stream.
 *   Using a helper [event sourcing](https://github.com/netcorebcn/easyeventsourcing) nuget package.
-
-## File References
-* [Voting Tests](https://github.com/paulopez78/workshopnetcore/blob/master/test/VotingApp.Tests/VotingTests.cs)
-* [Voting Object](https://github.com/paulopez78/workshopnetcore/blob/master/src/VotingApp.Lib/Voting.cs)
-* [Util targets](https://github.com/paulopez78/workshopnetcore/blob/master/tools/util.targets)
-* [Console Client](https://github.com/paulopez78/workshopnetcore/blob/master/src/VotingApp.Client/Program.cs)
-* [Voting Controller](https://github.com/paulopez78/workshopnetcore/blob/master/src/VotingApp.Api/VotingController.cs)
-* [Tasks Json](https://github.com/paulopez78/workshopnetcore/blob/master/.vscode/tasks.json)
-* [Launch Json](https://github.com/paulopez78/workshopnetcore/blob/master/.vscode/launch.json)
 
 ## More Awesome Resources
 * <https://blogs.msdn.microsoft.com/dotnet/2014/12/04/introducing-net-core/>
