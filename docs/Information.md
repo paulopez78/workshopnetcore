@@ -19,7 +19,7 @@ Optional Requirements:
 * [dotPeek](https://www.jetbrains.com/decompiler/)
 * [ILSpy](http://ilspy.net/)
 * [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-* [MSBuil StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
+* [MSBuild StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
 * [Integrated Terminal for Visual Studio](https://marketplace.visualstudio.com/items?itemName=DanielGriffen.WhackWhackTerminal)
 
 ## Get started with the dotnet CLI and the new SDK
