@@ -20,6 +20,7 @@ Optional Requirements:
 * [ILSpy](http://ilspy.net/)
 * [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
 * [MSBuil StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
+* [Integrated Terminal for Visual Studio](https://marketplace.visualstudio.com/items?itemName=DanielGriffen.WhackWhackTerminal)
 
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
