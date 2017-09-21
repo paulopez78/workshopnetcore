@@ -20,6 +20,7 @@ Optional Requirements:
 * [ILSpy](http://ilspy.net/)
 * [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
 * [MSBuild StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
+* [.NET Portability Analyzer](http://vsixgallery.com/extension/55d15546-28ca-40dc-af23-dfa503e9c5fe/)
 * [Integrated Terminal for Visual Studio](https://marketplace.visualstudio.com/items?itemName=DanielGriffen.WhackWhackTerminal)
 
 ## Get started with the dotnet CLI and the new SDK
