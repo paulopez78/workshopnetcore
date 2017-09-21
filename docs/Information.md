@@ -22,6 +22,7 @@ Optional Requirements:
 * [MSBuild StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
 * [.NET Portability Analyzer](http://vsixgallery.com/extension/55d15546-28ca-40dc-af23-dfa503e9c5fe/)
 * [Integrated Terminal for Visual Studio](https://marketplace.visualstudio.com/items?itemName=DanielGriffen.WhackWhackTerminal)
+* [Project File Tools](https://marketplace.visualstudio.com/items?itemName=ms-madsk.ProjectFileTools)
 
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
