@@ -23,10 +23,7 @@
             "taskName": "clean"
         },
         {
-            "taskName": "test",
-            "args": [
-                "${workspaceRoot}/test/VotingApp.Tests/VotingApp.Tests.csproj"
-            ]
+            "taskName": "test"
         },
         {
             "taskName": "publish",
