@@ -69,7 +69,7 @@ Optional Requirements:
     *   Facade assemblies (aka [type forwarding](https://blogs.msdn.microsoft.com/davbr/2009/09/30/type-forwarding/))  
 *  Target different frameworks in the context of the votinapp for better understanding of netstandard.
 * [netstandard](https://www.slideshare.net/PauLpez3/demystifying-net-standard-77852581)
-* [Logger Sample](https://raw.githubusercontent.com/paulopez78/netstandard-meetup/master/LoggingLib/Logger.cs)
+* [Logger Sample](https://github.com/paulopez78/workshopnetcore/tree/netstandard/src/LegacyLoggingLib)
 
 ## Publishing the VotingApp API in different frameworks and runtimes
 *   [Portable vs Self contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/index)
