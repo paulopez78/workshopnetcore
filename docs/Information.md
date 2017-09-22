@@ -23,6 +23,7 @@ Optional Requirements:
 * [.NET Portability Analyzer](http://vsixgallery.com/extension/55d15546-28ca-40dc-af23-dfa503e9c5fe/)
 * [Integrated Terminal for Visual Studio](https://marketplace.visualstudio.com/items?itemName=DanielGriffen.WhackWhackTerminal)
 * [Project File Tools](https://marketplace.visualstudio.com/items?itemName=ms-madsk.ProjectFileTools)
+* [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
 
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
