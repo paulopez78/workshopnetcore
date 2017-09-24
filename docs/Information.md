@@ -16,14 +16,15 @@
     ```
 
 Optional Requirements:
-* [dotPeek](https://www.jetbrains.com/decompiler/)
-* [ILSpy](http://ilspy.net/)
-* [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-* [MSBuild StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
+* [Windows Subsystem for Linux](https://msdn.microsoft.com/de-de/commandline/wsl/about)
 * [.NET Portability Analyzer](http://vsixgallery.com/extension/55d15546-28ca-40dc-af23-dfa503e9c5fe/)
-* [Integrated Terminal for Visual Studio](https://marketplace.visualstudio.com/items?itemName=DanielGriffen.WhackWhackTerminal)
-* [Project File Tools](https://marketplace.visualstudio.com/items?itemName=ms-madsk.ProjectFileTools)
+* [MSBuild StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
+* [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
+* [ILSpy](http://ilspy.net/)
+* [dotPeek](https://www.jetbrains.com/decompiler/)
 * [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
+* [Project File Tools](https://marketplace.visualstudio.com/items?itemName=ms-madsk.ProjectFileTools)
+* [Integrated Terminal for Visual Studio](https://marketplace.visualstudio.com/items?itemName=DanielGriffen.WhackWhackTerminal)
 
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
