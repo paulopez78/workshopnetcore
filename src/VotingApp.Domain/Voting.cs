@@ -29,9 +29,9 @@ namespace VotingApp.Domain
 
         public void Vote(string topic)
         {
-            AssertWinner();
+            AssertOnGoingVoting();
             AssertValidTopic();
-            
+
             Votes[topic] = ++Votes[topic];
 
             void AssertValidTopic()
@@ -42,20 +42,23 @@ namespace VotingApp.Domain
                     throw new InvalidOperationException("Topic doesn't exist");
                 }
             }
-
-            void AssertWinner()
-            {
-                if (!string.IsNullOrEmpty(Winner))
-                {
-                    throw new InvalidOperationException($"The voting is over the winner is {Winner}");
-                }
-            }
         }
 
         public void Finish()
         {
+            AssertOnGoingVoting();
             var maxVotes = Votes.Select(y => y.Value).Max();
+
+            AssertOnlyOneWinner();
             Winner = Votes.Single(x => x.Value == maxVotes).Key;
+
+            void AssertOnlyOneWinner()
+            {
+                if (Votes.Count(x => x.Value == maxVotes) != 1)
+                {
+                    throw new InvalidOperationException("Can't finish voting, only one winner is allowed");
+                }
+            }
         }
 
         public object GetState() => new
@@ -63,5 +66,18 @@ namespace VotingApp.Domain
             Votes,
             Winner
         };
+
+        private void AssertOnGoingVoting()
+        {
+            if (Votes == null)
+            {
+                throw new InvalidOperationException("Voting not started yet");
+            }
+
+            if (!string.IsNullOrEmpty(Winner))
+            {
+                throw new InvalidOperationException($"The voting is over the winner is {Winner}");
+            }
+        }
     }
 }

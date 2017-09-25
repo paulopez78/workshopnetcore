@@ -114,5 +114,25 @@ namespace VotingApp.Tests
 
             Assert.ThrowsAny<InvalidOperationException>(action);
         }
+
+        [Fact]
+        public void Given_NotStartedVoting_When_Finish_Then_Exception()
+        {
+            var voting = new Voting();
+
+            Action action = () => voting.Finish();
+
+            Assert.ThrowsAny<InvalidOperationException>(action);
+        }
+
+        [Fact]
+        public void Given_NotStartedVoting_When_Vote_Then_Exception()
+        {
+            var voting = new Voting();
+
+            Action action = () => voting.Vote("C#");
+
+            Assert.ThrowsAny<InvalidOperationException>(action);
+        }
     }
 }
