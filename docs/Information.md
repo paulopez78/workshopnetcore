@@ -74,15 +74,15 @@ Optional Requirements:
 * [netstandard](https://www.slideshare.net/PauLpez3/demystifying-net-standard-77852581)
 * [Logger Sample](https://github.com/paulopez78/workshopnetcore/tree/netstandard/src/LegacyLoggingLib)
 
+## Adding UI and Websockets to the ASP.NET Core VotingApp
+*  Using [static files](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files) for building the UI.
+*  Using websockets for realtime voting.
+
 ## Publishing the VotingApp API in different frameworks and runtimes
 *   [Portable vs Self contained deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/index)
 *   [Runtime identifiers](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
 *   [.NET Core native prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)
 *   Use windows, macosx and docker (for linux runtime) for testing different published outputs.
-
-## Adding UI and Websockets to the ASP.NET Core VotingApp
-*  Using [static files](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files) for building the UI.
-*  Using websockets for realtime voting.
 
 ## Upgrading the VotingApp.Api to .NET Core 2.0
 *   What's new in .NET Core 2.0?
