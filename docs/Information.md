@@ -17,6 +17,7 @@
 
 Optional Requirements:
 * [Windows Subsystem for Linux](https://msdn.microsoft.com/de-de/commandline/wsl/about)
+    * [.NET Core SDK for Linux](https://www.microsoft.com/net/core#linuxubuntu)
 * [.NET Portability Analyzer](http://vsixgallery.com/extension/55d15546-28ca-40dc-af23-dfa503e9c5fe/)
 * [MSBuild StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
 * [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
