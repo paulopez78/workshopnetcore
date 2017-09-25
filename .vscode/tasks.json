@@ -1,36 +1,30 @@
 {
-    "version": "0.1.0",
-    "command": "dotnet",
-    "isShellCommand": true,
-    "args": [],
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "fullbuild",
-            "suppressTaskName": true,
-            "args": [
-                "msbuild",
-                "/t:fullbuild"
-            ]
-        },
-        {
             "taskName": "build",
-            "isBuildCommand": true
+            "command": "dotnet build",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
-            "taskName": "restore"
+            "taskName": "test",
+            "command": "dotnet test",
+            "type": "shell",            
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         },
         {
-            "taskName": "clean"
-        },
-        {
-            "taskName": "test"
-        },
-        {
-            "taskName": "publish",
-            "args": [
-                "-o",
-                "bin/build"
-            ]
+            "taskName": "clean",
+            "type": "shell",            
+            "command": "dotnet clean"
         }
     ]
 }
