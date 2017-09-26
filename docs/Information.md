@@ -65,12 +65,23 @@ Optional Requirements:
 ## Creating the ASP.NET Core VotingAPP API
 * [Swagger](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
 * Use the debugger and understand the `launch.json` file.
+* Upgrading the VotingApp.Api to .NET Core 2.0
+*   What's new in .NET Core 2.0?
+*   Pinning your SDK with `global.json` file
+*   [New ASP .NET Core All package and the storage folder](https://andrewlock.net/the-microsoft-aspnetcore-all-metapackage-is-huge-and-thats-awesome-thanks-to-the-net-core-runtime-store-2)
+*   [New default builder and default configuration](https://andrewlock.net/exploring-program-and-startup-in-asp-net-core-2-preview1-2/)
+*   [WebHost DefaultBuilder](https://github.com/aspnet/MetaPackages/blob/5a3ce9fd5d3ae7f6cf117d8f203a4242db6baece/src/Microsoft.AspNetCore/WebHost.cs) 
+
+## .NET Standard
 * [Target .net core and .net framework](https://docs.microsoft.com/en-us/dotnet/standard/frameworks)
+    *  Target different frameworks in the context of the votinapp for better understanding of netstandard.
 * [Introducing .net standard](https://docs.microsoft.com/en-us/dotnet/standard/library)
     *   Reference assemblies
     *   Implementation assemblies
     *   Facade assemblies (aka [type forwarding](https://blogs.msdn.microsoft.com/davbr/2009/09/30/type-forwarding/))  
-*  Target different frameworks in the context of the votinapp for better understanding of netstandard.
+*   New netcoreapp2.0 and netstandard2.0 packages
+    *   Introducing `netstandard.dll` reference assembly
+    *   Reuse existing .net framewor libs thanks to the `mscorlib.dll` facade assembly
 * [netstandard](https://www.slideshare.net/PauLpez3/demystifying-net-standard-77852581)
 * [Logger Sample](https://github.com/paulopez78/workshopnetcore/tree/netstandard/src/LegacyLoggingLib)
 
@@ -83,15 +94,6 @@ Optional Requirements:
 *   [Runtime identifiers](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
 *   [.NET Core native prerequisites](https://github.com/dotnet/core/blob/master/Documentation/prereqs.md)
 *   Use windows, macosx and docker (for linux runtime) for testing different published outputs.
-
-## Upgrading the VotingApp.Api to .NET Core 2.0
-*   What's new in .NET Core 2.0?
-*   Pinning your SDK with `global.json` file
-*   New netcoreapp2.0 and netstandard2.0 packages
-    *   Introducing `netstandard.dll` reference assembly
-    *   Reuse existing .net framewor libs thanks to the `mscorlib.dll` facade assembly
-*   [New ASP .NET Core All package and the storage folder](https://andrewlock.net/the-microsoft-aspnetcore-all-metapackage-is-huge-and-thats-awesome-thanks-to-the-net-core-runtime-store-2)
-*   [New default builder and default configuration](https://andrewlock.net/exploring-program-and-startup-in-asp-net-core-2-preview1-2/)
 
 ## Running the VotingApp with Docker
 *   Checkpoint: `git clone --branch docker https://github.com/paulopez78/workshopnetcore.git`
