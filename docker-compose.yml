@@ -5,6 +5,7 @@ services:
     image: ${REGISTRY:-paulopez/}votingapp:${TAG:-latest}
     build:
       context: ${BUILD_CONTEXT:-.}
+      dockerfile: src/VotingApp.Api/Dockerfile
     container_name: votingapp
     ports:
       - 80:80
