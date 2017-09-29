@@ -10,6 +10,7 @@ namespace VotingApp.Api
         public static void Main(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .Build();
+                .Build()
+                .Run();
     }    
 }
