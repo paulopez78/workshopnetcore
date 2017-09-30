@@ -13,6 +13,8 @@
     docker pull microsoft/dotnet:runtime-deps
     docker pull microsoft/aspnetcore
     docker pull microsoft/aspnetcore-build
+    docker pull ubuntu
+    docker pull eventstore/eventstore
     ```
 
 Optional Requirements:
