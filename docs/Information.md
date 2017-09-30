@@ -116,7 +116,7 @@ Optional Requirements:
 *   Visual Studio Docker Support
 
 ## Refactoring towards EventSourcing, CQRS and microservices
-*  [Sample voting app with eventsourcing architecture](https://github.com/paulopez78/votingapp)
+*  [Sample voting app with eventsourcing architecture](https://github.com/paulopez78/workshopnetcore/tree/eventsourcing)
 *   Understanding event sourcing and CQRS concepts.
 *   Creating projections of your events stream.
 *   Using a helper [event sourcing](https://github.com/netcorebcn/easyeventsourcing) nuget package.
