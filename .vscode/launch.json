@@ -29,7 +29,7 @@
             "name": "VotingApp (Docker)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "publish",
+            "preLaunchTask": "publish-for-debug",
             "cwd": "/app",
             "program": "/app/VotingApp.Api.dll",
             "sourceFileMap": {
@@ -43,6 +43,20 @@
                     "-c",
                     "docker exec -i votingapp /vsdbg/vsdbg --interpreter=vscode"
                 ]
+            },
+            "launchBrowser": {
+                "enabled": true,
+                "args": "http://localhost:5000/?admin",
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start http://localhost:5000/?admin"
+                },
+                "osx": {
+                    "command": "open"
+                },
+                "linux": {
+                    "command": "xdg-open"
+                }
             }
         },
         {

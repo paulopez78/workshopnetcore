@@ -25,6 +25,11 @@
             "taskName": "clean",
             "type": "shell",            
             "command": "dotnet clean"
+        },
+        {
+            "taskName": "publish-for-debug",
+            "type": "shell",            
+            "command": "dotnet publish -o bin/build"
         }
     ]
 }
