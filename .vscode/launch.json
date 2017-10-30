@@ -41,14 +41,15 @@
                 "pipeCwd": "${workspaceRoot}",
                 "pipeArgs": [
                     "exec -i votingapp"
-                ]
+                ],
+                "quoteArgs": false
             },
             "launchBrowser": {
                 "enabled": true,
-                "args": "http://localhost:5000/?admin",
+                "args": "http://localhost/?admin",
                 "windows": {
                     "command": "cmd.exe",
-                    "args": "/C start http://localhost:5000/?admin"
+                    "args": "/C start http://localhost/?admin"
                 },
                 "osx": {
                     "command": "open"
