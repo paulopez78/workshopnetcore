@@ -37,11 +37,10 @@
             },
             "pipeTransport": {
                 "debuggerPath": "/vsdbg/vsdbg",
-                "pipeProgram": "/bin/bash",
+                "pipeProgram": "docker",
                 "pipeCwd": "${workspaceRoot}",
                 "pipeArgs": [
-                    "-c",
-                    "docker exec -i votingapp /vsdbg/vsdbg --interpreter=vscode"
+                    "exec -i votingapp"
                 ]
             },
             "launchBrowser": {
