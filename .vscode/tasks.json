@@ -4,7 +4,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build",
+            "label": "build",
             "command": "dotnet build",
             "type": "shell",
             "group": {
@@ -13,7 +13,7 @@
             }
         },
         {
-            "taskName": "test",
+            "label": "test",
             "command": "dotnet test",
             "type": "shell",            
             "group": {
@@ -22,12 +22,12 @@
             }
         },
         {
-            "taskName": "clean",
+            "label": "clean",
             "type": "shell",            
             "command": "dotnet clean"
         },
         {
-            "taskName": "publish-for-debug",
+            "label": "publish-for-debug",
             "type": "shell",            
             "command": "dotnet publish -o bin/build"
         }
