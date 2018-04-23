@@ -1,33 +1,55 @@
-
-version: "3.1"
-
-services:
- main:
-  image: paulopez/jenkins:latest
-  ports:
-   - 8080:8080
-   - 50000:50000
-  environment:
-   - JENKINS_OPTS="--prefix=/jenkins"
-  secrets:
-   - jenkins-user
-   - jenkins-pass
-  volumes:
-   - jm:/var/jenkins_home
-   - jm_share:/usr/share/jenkins/ref
-secrets:
-  jenkins-user:
-    external: true
-  jenkins-pass:
-    external: true
-volumes:
-  jm:
-    driver: cloudstor:azure
-    driver_opts:
-      size: 25
-    external: false
-  jm_share:
-    driver: cloudstor:azure
-    driver_opts:
-      size: 10
-    external: false
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ name: jenkins-ci
+spec:
+ replicas: 1
+ template:
+  metadata:
+   labels:
+    name: jenkins-ci
+  spec:
+   imagePullSecrets:
+    - name: regsecret
+   containers:
+   - name: jenkins-ci
+     imagePullPolicy: Always
+     image: paulopez/jenkins:latest
+     ports:
+     - containerPort: 8080
+     - containerPort: 50000
+     readinessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 40
+      periodSeconds: 20
+     securityContext: 
+       privileged: true 
+     volumeMounts: 
+       - mountPath: /var/run
+         name: docker-sock 
+       - mountPath: /var/jenkins_home
+         name: jenkins-home 
+   volumes: 
+     - name: docker-sock
+       hostPath: 
+         path: /var/run
+     - name: jenkins-home
+       hostPath: 
+         path: /var/jenkins_home
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-ci-lb
+spec:
+ type: LoadBalancer
+ ports:
+   - name: jenkins
+     port: 8080
+     targetPort: 8080
+   - name: jenkins-agent
+     port: 50000
+     targetPort: 50000
+ selector:
+   name: jenkins-ci

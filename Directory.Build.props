@@ -1,13 +1,11 @@
- <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-       <Target Name="superclean" AfterTargets="Clean">
+<Project 
+      xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+      <Target Name="superclean" AfterTargets="Clean">
             <Message Importance="High" Text="Removing bin and obj folders for project $(ProjectName)" />
             <RemoveDir Directories="bin" />
             <RemoveDir Directories="obj" />
-       </Target>
-       <Target Name="fullbuild">
-         <Message Importance="High" Text="Cleaning, Restoring and Building project $(ProjectName)" />
-         <CallTarget Targets="superclean"/>
-         <CallTarget Targets="restore"/>
-          <CallTarget Targets="build"/>
-       </Target>       
-  </Project>
+      </Target>
+      <ItemGroup>
+            <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.1" />
+      </ItemGroup>
+</Project>
