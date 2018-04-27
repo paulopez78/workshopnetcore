@@ -1,5 +1,4 @@
-<Project 
-      xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project>
       <Target Name="superclean" AfterTargets="Clean">
             <Message Importance="High" Text="Removing bin and obj folders for project $(ProjectName)" />
             <RemoveDir Directories="bin" />

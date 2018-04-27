@@ -1,11 +1,16 @@
-version: "3.3"
+version: "3.6"
 
 services:
   app:
-    image: ${REGISTRY:-paulopez/}votingapp:${TAG:-latest}
+    image: ${REGISTRY:-local}/votingapp:${TAG:-latest}
     build:
       context: ${BUILD_CONTEXT:-.}
-      dockerfile: src/VotingApp.Api/Dockerfile
+      dockerfile: ${VOTINGAPP_API}/Dockerfile
+      args:
+        api: ${VOTINGAPP_API}
+        domain: ${VOTINGAPP_DOMAIN}
+        tests: ${VOTINGAPP_TESTS}
+        entrypoint: ${VOTINGAPP_ENTRYPOINT}
     container_name: votingapp
     ports:
       - 80:80

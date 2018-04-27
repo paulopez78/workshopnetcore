@@ -77,7 +77,7 @@ namespace VotingApp.Tests
 
             voting.Finish();
 
-            Assert.Equal(voting.Winner, "DEV");
+            Assert.Equal("DEV", voting.Winner);
         }
 
         [Fact]

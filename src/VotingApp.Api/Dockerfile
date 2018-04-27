@@ -1,35 +1,29 @@
-
-# BUILD STAGE
+# BUILDER STAGE
 FROM microsoft/aspnetcore-build AS builder
+ARG api
+ARG tests
+ARG domain
 
-COPY src/VotingApp.Domain /src/VotingApp.Domain
+# RESTORE
+COPY ${api}*.csproj ${api}
+COPY ${domain}*.csproj ${domain}
+COPY ${tests}*.csproj ${tests}
 
-WORKDIR /src/VotingApp.Api
-COPY src/VotingApp.Api/VotingApp.Api.csproj .
-RUN dotnet restore
+RUN dotnet restore ${api}
+RUN dotnet restore ${tests}
 
-COPY src/VotingApp.Api .
-RUN dotnet build  -o /build/ -c Release
+# UNIT TESTS
+COPY ${api} ${api}
+COPY ${tests} ${tests}
+COPY ${domain} ${domain}
 
-# UNIT TEST STAGE
-FROM builder AS unit-tests
+RUN dotnet test ${tests}
 
-WORKDIR /test/VotingApp.Tests
-COPY test/VotingApp.Tests/VotingApp.Tests.csproj .
-RUN dotnet restore
+# PUBLISH
+RUN dotnet publish ${api} -o /publish -c Release
 
-COPY test/VotingApp.Tests .
-RUN dotnet test
-
-
-# PUBLISH STAGE
-FROM builder AS publish
-WORKDIR /src/VotingApp.Api
-RUN dotnet publish  -o /build/ -c Release
-
-
-# PRODUCTION IMAGE STAGE
+# BUILDER STAGE
 FROM microsoft/aspnetcore
-WORKDIR /app
-COPY --from=publish build/ .
+WORKDIR /publish
+COPY --from=builder /publish .
 ENTRYPOINT ["dotnet", "VotingApp.Api.dll"]
