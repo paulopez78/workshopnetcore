@@ -2,15 +2,23 @@ version: "3.6"
 
 services:
   app:
-    image: ${REGISTRY:-local}/votingapp:${TAG:-latest}
+    image: ${REGISTRY}/votingapp:${TAG}
     build:
-      context: ${BUILD_CONTEXT:-.}
-      dockerfile: ${VOTINGAPP_API}/Dockerfile
+      context: .
+      dockerfile: ${VOTINGAPP_API}Dockerfile
       args:
         api: ${VOTINGAPP_API}
         domain: ${VOTINGAPP_DOMAIN}
         tests: ${VOTINGAPP_TESTS}
-        entrypoint: ${VOTINGAPP_ENTRYPOINT}
     container_name: votingapp
     ports:
       - 80:80
+
+  integration-tests:
+    image: ${REGISTRY}/integration-tests:${TAG}
+    build:
+      context: .
+      dockerfile: ${VOTINGAPP_INTEGRATION_TESTS}Dockerfile
+      args:
+        tests: ${VOTINGAPP_INTEGRATION_TESTS}
+    container_name: integration-tests
