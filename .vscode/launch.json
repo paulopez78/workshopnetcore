@@ -29,7 +29,7 @@
             "name": "VotingApp (Docker)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "publish-for-debug",
+            "preLaunchTask": "publish",
             "cwd": "/app",
             "program": "/app/VotingApp.Api.dll",
             "sourceFileMap": {
@@ -40,7 +40,7 @@
                 "pipeProgram": "docker",
                 "pipeCwd": "${workspaceRoot}",
                 "pipeArgs": [
-                    "exec -i votingapp"
+                    "exec -i votingapp-debug"
                 ],
                 "quoteArgs": false
             },
@@ -58,12 +58,6 @@
                     "command": "xdg-open"
                 }
             }
-        },
-        {
-            "name": ".NET Core Attach",
-            "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
         }
     ]
 }

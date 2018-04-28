@@ -27,7 +27,7 @@
             "command": "dotnet clean"
         },
         {
-            "label": "publish-for-debug",
+            "label": "publish",
             "type": "shell",            
             "command": "dotnet publish -o bin/build"
         }

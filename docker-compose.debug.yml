@@ -2,9 +2,12 @@ version: "3.3"
 
 services:
   api:
-    image: paulopez/aspnetcore-debug
-    container_name: votingapp
+    image: aspnetcore-debug
+    build:
+      context: .
+      dockerfile: docker/aspnetcore-debug/Dockerfile
+    container_name: votingapp-debug
     volumes: 
-      - ./src/VotingApp.Api/bin/build/:/app
+      - ${VOTINGAPP_API}/bin/build/:/app
     ports:
-      - 5000:80
+      - 80:80
