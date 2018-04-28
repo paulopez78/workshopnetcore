@@ -1,5 +1,5 @@
 set -e
-docker-compose stop
+docker-compose down
 
 docker-compose \
     -f docker-compose.dotnet-sdk.yml \
