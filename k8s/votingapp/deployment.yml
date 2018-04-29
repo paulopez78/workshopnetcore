@@ -1,0 +1,14 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: votingapp
+spec:
+  template:
+    metadata:
+      labels:
+        app: votingapp
+        environment: staging
+    spec:
+      containers:
+      - name: votingapp
+        image: localhost:30400/votingapp:latest

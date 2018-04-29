@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: votingapp
+spec:
+  rules:
+  - host: votingapp.io
+    http: 
+      paths:
+      - path: /
+        backend:
+          serviceName: votingapp
+          servicePort: 80
