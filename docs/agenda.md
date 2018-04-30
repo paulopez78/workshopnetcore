@@ -52,17 +52,23 @@
 
 ## Session 3: orchestrate with kubernetes
 
+### Deploy to Minikube 
+*   Install minikube
+*   Addons (heapster)
+*   kubectl basic commands: context, get
+*   reuse the docker engine for building and pushing
+*   run votingapp within a pod, use kubectl port-forward
+*   expose a service for the votingapp pod
+*   create yml definitions for deployment and services
+*   enable ingress addon
+*   scale the votingapp
+*   full ci cd with docker and kubectl
+
 ### Refactoring towards EventSourcing, CQRS and microservices
 *   [Sample voting app with eventsourcing architecture](https://github.com/paulopez78/workshopnetcore/tree/eventsourcing)
 *   create votingapp commands and votingapp queries
 *   Add rabbit and postgresql images 
 *   Development workflow with docker
 
-### Deploy to Minikube 
-*   Install minikube
-*   kubectl basic commands
-*   Create deployment, pods, services, ingress...
-
 ### Deploy with helm
 *   Deploy infrastructure with helm charts: rabbit and postgresql
-
