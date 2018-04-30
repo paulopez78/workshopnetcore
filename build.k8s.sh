@@ -24,6 +24,7 @@ function integration_tests()
 }
 
 set -e
+eval $(minikube docker-env)
 export REGISTRY=localhost:30400
 export TAG=$RANDOM
 
