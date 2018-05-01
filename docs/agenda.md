@@ -46,7 +46,7 @@
 *   Run with the new dotnet alpine 2.1 images 
 
 ### Building and Deploying the VotingApp with Docker Compose
-*   dotnet publish with SDK images 
+*   dotnet publish with SDK images
 *   [Multistage docker file for building runtime images](https://docs.docker.com/engine/userguide/eng-image/multistage-build/)
 *   Debugging with docker, vscode and .net core
 

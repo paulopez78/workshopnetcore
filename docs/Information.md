@@ -1,37 +1,5 @@
 # Information
 
-## Setup and installation:
-* [.NET Core SDK](https://www.microsoft.com/net/download/core)
-* [Visual Studio Code](https://code.visualstudio.com/) with C# extension 
-* [Visual Studio 2017 CE or Enterprise](https://www.visualstudio.com/free-developer-offers/)
-* [Docker CE](https://www.docker.com/community-edition#/download)
-* Start docker and pull [microsoft images](https://hub.docker.com/r/microsoft/dotnet/)
-    
-    ```bash
-    docker pull microsoft/dotnet:sdk
-    docker pull microsoft/dotnet:runtime
-    docker pull microsoft/dotnet:runtime-deps
-    docker pull microsoft/aspnetcore
-    docker pull microsoft/aspnetcore-build
-    docker pull ubuntu
-    ```
-
-    ```bash
-    docker pull microsoft/dotnet:2.1-sdk-alpine
-    docker pull microsoft/dotnet:2.1-runtime-alpine
-    docker pull microsoft/dotnet:2.1-aspnetcore-runtime-alpine
-    docker pull microsoft/dotnet:2.1-runtime-deps-alpine
-    ```
-
-Optional Requirements:
-* [Windows Subsystem for Linux](https://msdn.microsoft.com/de-de/commandline/wsl/about)
-    * [.NET Core SDK for Linux](https://www.microsoft.com/net/core#linuxubuntu)
-* [.NET Portability Analyzer](http://vsixgallery.com/extension/55d15546-28ca-40dc-af23-dfa503e9c5fe/)
-* [MSBuild StructuredLog](https://github.com/KirillOsenkov/MSBuildStructuredLog)
-* [Nuget Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-* [ILSpy](http://ilspy.net/)
-* [Process Explorer](https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer)
-
 ## Get started with the dotnet CLI and the new SDK
 * What is installed and where? Quick look at the dotnet core installation folder.
 * [SDK architecture](https://docs.microsoft.com/en-us/dotnet/core/tools/cli-msbuild-architecture)
