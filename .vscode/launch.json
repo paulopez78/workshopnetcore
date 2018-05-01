@@ -58,6 +58,23 @@
                     "command": "xdg-open"
                 }
             }
+        },
+        {
+            "name": "VotingApp (k8s)",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": 1,
+            "sourceFileMap": {
+                "/": "${workspaceRoot}"
+            },
+            "pipeTransport": {
+                "debuggerPath": "/vsdbg/vsdbg",
+                "pipeProgram": "kubectl",
+                "pipeArgs": [
+                    "exec -i ${env:DEBUG_POD_NAME} --namespace production --"
+                ],
+                "quoteArgs": false
+            }
         }
     ]
 }

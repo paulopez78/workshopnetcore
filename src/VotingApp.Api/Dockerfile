@@ -20,7 +20,7 @@ COPY ${domain} ${domain}
 RUN dotnet test ${tests}
 
 # PUBLISH
-RUN dotnet publish ${api} -o /publish -c Release
+RUN dotnet publish ${api} -o /publish -c Debug
 
 # BUILDER STAGE
 FROM microsoft/aspnetcore
