@@ -28,8 +28,10 @@
 * Built-in Configuration, Dependency Injection and Logging.
 
 ### .NET Standard
-* [netstandard](https://www.slideshare.net/PauLpez3/demystifying-net-standard-77852581)
-* [Logger Sample](https://github.com/paulopez78/workshopnetcore/tree/netstandard/src/LegacyLoggingLib)
+* Run votingapp with net461,net451 and netcoreapp20
+* Use netstandard1.0 and netstandard2.0 in the VotingDomain project
+* Create leggacy project (logger and utils) and use it in the votingapp
+* Move legacy to netstandard lib and show platform not supported exceptions.
 
 ## Session 2: dotnetcore and docker
 
