@@ -10,7 +10,6 @@ namespace VotingApp.Api
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(new Voting());
             services.AddMvc();
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "Voting API", Version = "v1" }));
             services.AddEasyWebSockets();

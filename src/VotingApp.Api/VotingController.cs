@@ -11,10 +11,10 @@ namespace VotingApp.Api
     [Route("api/[controller]")]
     public class VotingController : Controller
     {
-        private readonly Voting _voting;
+        private readonly VotingAggregate _voting;
         private readonly IWebSocketPublisher _wsPublisher;
 
-        public VotingController(Voting voting, IWebSocketPublisher wsPublisher)
+        public VotingController(VotingAggregate voting, IWebSocketPublisher wsPublisher)
         {
             _voting = voting;
             _wsPublisher = wsPublisher;
