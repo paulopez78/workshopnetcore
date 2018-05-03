@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using ClassicUtilsLib;
 
-namespace LoggingLib
+namespace Common
 {
     public class Logger
     {

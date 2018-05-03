@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 
-namespace UtilsLib
+namespace Common
 {
     public static class Utils
     {
