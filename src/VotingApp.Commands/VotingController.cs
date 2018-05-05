@@ -9,7 +9,7 @@ using VotingApp.Domain;
 
 namespace VotingApp.Commands
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class VotingController : Controller
     {
         private readonly IDocumentStore _eventStore;
