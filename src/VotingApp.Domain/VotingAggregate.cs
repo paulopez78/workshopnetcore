@@ -8,6 +8,8 @@ namespace VotingApp.Domain
     {
         private readonly List<object> _pendingEvents = new List<object>();
 
+        public Guid Id { get; }
+
         public VotingProjection State { get; }
         public object GetState() => new
         {
@@ -17,12 +19,16 @@ namespace VotingApp.Domain
 
         public IReadOnlyList<object> GetPendingEvents() => _pendingEvents; 
 
-        public VotingAggregate(IEnumerable<object> events = null) => State = new VotingProjection(events);
+        public VotingAggregate(Guid id, IEnumerable<object> events = null)
+        {
+            Id = id;
+            State = new VotingProjection(events);
+        }
 
         public void Start(params string[] topics)
         {
             AssertValidTopics();
-            RaiseEvent(new VotingStartedEvent(topics));
+            RaiseEvent(new VotingStartedEvent(Id, topics));
 
             void AssertValidTopics()
             {
@@ -38,7 +44,7 @@ namespace VotingApp.Domain
         {
             if (State.ValidTopic(topic))
             {
-                RaiseEvent(new TopicVotedEvent(topic));
+                RaiseEvent(new TopicVotedEvent(Id, topic));
             }
         }
 
@@ -46,7 +52,7 @@ namespace VotingApp.Domain
         {
             if (State.OnlyOneWinner())
             {
-                RaiseEvent(new VotingFinishedEvent());
+                RaiseEvent(new VotingFinishedEvent(Id));
             }
         }
 

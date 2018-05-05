@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace VotingApp.Api
+namespace VotingApp.Commands
 {
     public static class ExceptionHandlerExtensions
     {

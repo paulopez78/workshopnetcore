@@ -3,12 +3,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="EasyWebSockets" Version="0.0.7" />
+    <PackageReference Include="EasyNetQ" Version="2.3.3" />
+    <PackageReference Include="Marten" Version="2.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0-preview2-final" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="2.4.0" />
+    <PackageReference Include="Polly" Version="5.9.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VotingApp.Domain\VotingApp.Domain.csproj" />

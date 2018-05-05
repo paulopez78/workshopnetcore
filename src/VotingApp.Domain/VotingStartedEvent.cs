@@ -1,8 +1,10 @@
+using System;
+
 namespace VotingApp.Domain
 {
-    public class VotingStartedEvent
+    public class VotingStartedEvent : VotingEvent
     {
-        public VotingStartedEvent(string[] topics) => this.Topics = topics;
+        public VotingStartedEvent(Guid id, string[] topics): base(id) => this.Topics = topics;
 
         public string[] Topics { get; }
     }

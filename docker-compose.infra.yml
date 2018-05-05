@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: changeit
+
+  messagebroker:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"  

@@ -1,18 +1,34 @@
 version: "3.4"
 
 services:
-  app:
-    image: ${REGISTRY}/votingapp:${TAG}
+  commands:
+    image: ${REGISTRY}/votingapp-commands:${TAG}
     build:
       context: .
-      dockerfile: ${VOTINGAPP_API}Dockerfile
+      dockerfile: ${VOTINGAPP_COMMANDS}Dockerfile
       args:
-        api: ${VOTINGAPP_API}
+        api: ${VOTINGAPP_COMMANDS}
         domain: ${VOTINGAPP_DOMAIN}
         tests: ${VOTINGAPP_TESTS}
-    container_name: votingapp
-    ports:
-      - 80:80
+
+  queries:
+    image: ${REGISTRY}/votingapp-queries:${TAG}
+    build:
+      context: .
+      dockerfile: ${VOTINGAPP_QUERIES}Dockerfile
+      args:
+        api: ${VOTINGAPP_QUERIES}
+        domain: ${VOTINGAPP_DOMAIN}
+        tests: ${VOTINGAPP_TESTS}
+
+  gateway:
+    image: ${REGISTRY}/votingapp-gateway:${TAG}
+    build:
+      context: .
+      dockerfile: ${VOTINGAPP_GATEWAY}/Dockerfile
+      args:
+        api: ${VOTINGAPP_GATEWAY}
+        static: ${VOTINGAPP_UI}
 
   integration-tests:
     image: ${REGISTRY}/integration-tests:${TAG}
@@ -21,4 +37,3 @@ services:
       dockerfile: ${VOTINGAPP_INTEGRATION_TESTS}Dockerfile
       args:
         tests: ${VOTINGAPP_INTEGRATION_TESTS}
-    container_name: integration-tests

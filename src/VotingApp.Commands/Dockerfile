@@ -26,4 +26,4 @@ RUN dotnet publish ${api} -o /publish -c Debug
 FROM microsoft/dotnet:2.1-aspnetcore-runtime-alpine
 WORKDIR /publish
 COPY --from=builder /publish .
-ENTRYPOINT ["dotnet", "VotingApp.Api.dll"]
+ENTRYPOINT ["dotnet", "VotingApp.Commands.dll"]

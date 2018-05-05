@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  commands:
+    environment: 
+      dbconnection: ${DB_CONNECTION}
+      messagebroker: ${MESSAGE_BROKER}
+  
+  queries:
+    environment: 
+      dbconnection: ${DB_CONNECTION}
+      messagebroker: ${MESSAGE_BROKER}
+
+  gateway:
+    ports:
+      - "80:80"
