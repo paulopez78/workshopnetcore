@@ -6,7 +6,7 @@ namespace VotingApp.Domain
 {
     public class VotingAggregate
     {
-        private readonly List<object> _pendingEvents = new List<object>();
+        private readonly List<VotingEvent> _pendingEvents = new List<VotingEvent>();
 
         public Guid Id { get; }
 
@@ -17,7 +17,7 @@ namespace VotingApp.Domain
             State.Winner
         };
 
-        public IReadOnlyList<object> GetPendingEvents() => _pendingEvents; 
+        public IReadOnlyList<VotingEvent> GetPendingEvents() => _pendingEvents; 
 
         public VotingAggregate(Guid id, IEnumerable<object> events = null)
         {
@@ -56,7 +56,7 @@ namespace VotingApp.Domain
             }
         }
 
-        private void RaiseEvent(object votingStartedEvent)
+        private void RaiseEvent(VotingEvent votingStartedEvent)
         {
             _pendingEvents.Add(votingStartedEvent);
             State.Apply(votingStartedEvent);
