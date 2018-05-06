@@ -35,7 +35,7 @@ namespace VotingApp.Queries
             using (var session = _eventStore.OpenSession())
             {
                 var currentVoting = session.Query<CurrentVotingAggregate>().FirstOrDefault();
-                var events = session.Events.FetchStream(currentVoting.Id);
+                var events = session.Events.FetchStream(currentVoting?.Id ?? Guid.Empty);
                 projection = new VotingProjection(events);
             }
 
