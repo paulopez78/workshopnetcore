@@ -35,10 +35,13 @@
                             ${topic}, votes: ${state.votes[topic]}
                         </div>`;
                 }
-                for (var topic in state.votes) 
-                {
-                    (t => addEventHandler(t, () => votingApi.vote(t).then(render)))
-                    (topic);
+                
+                if (!state.winner){
+                    for (var topic in state.votes) 
+                    {
+                        (t => addEventHandler(t, () => votingApi.vote(t).then(render)))
+                        (topic);
+                    }
                 }
             }
         }

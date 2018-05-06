@@ -37,25 +37,27 @@ namespace VotingApp.Commands
         {
             using(var session = _eventStore.OpenSession())
             {
-                var votingId = await GetCurrentVotingId();
+                var currentVoting = await session.Query<CurrentVotingAggregate>().FirstOrDefaultAsync();
+                var votingId = currentVoting?.Id ?? Guid.NewGuid();
                 var events = (await session.Events.FetchStreamAsync(votingId)).Select(@event => @event.Data).ToArray();
                 var aggregate = new VotingAggregate(votingId, events);
 
                 action(aggregate);            
 
-                var eventStreamState = await session.Events.FetchStreamStateAsync(votingId);
-                var expectedVersion = (eventStreamState?.Version ?? 0) + aggregate.GetPendingEvents().Count();
-                session.Events.Append(votingId, expectedVersion, aggregate.GetPendingEvents().ToArray());
-                await session.SaveChangesAsync();
-
-                await Task.WhenAll(aggregate.GetPendingEvents().Select(_bus.PublishAsync));
-                return aggregate.GetState();
-
-                async Task<Guid> GetCurrentVotingId()
+                if (aggregate.GetPendingEvents().Any())
                 {
-                    var currentVoting = await session.Query<CurrentVotingAggregate>().FirstOrDefaultAsync();
-                    return currentVoting?.Id ?? Guid.NewGuid();
+                    var eventStreamState = await session.Events.FetchStreamStateAsync(votingId);
+                    var expectedVersion = (eventStreamState?.Version ?? 0) + aggregate.GetPendingEvents().Count();
+
+                    // store events
+                    session.Events.Append(votingId, expectedVersion, aggregate.GetPendingEvents().ToArray());
+                    await session.SaveChangesAsync();
+
+                    // publish events
+                    await Task.WhenAll(aggregate.GetPendingEvents().Select(_bus.PublishAsync));
                 }
+
+                return aggregate.GetState();
             }
         }
     }
