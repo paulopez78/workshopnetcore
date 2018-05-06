@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using EasyNetQ;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VotingApp.Domain;
@@ -18,6 +19,7 @@ namespace VotingApp.Commands
         {
             services.AddMvc();
             services.AddEventStore(Configuration);
+            services.AddSingleton<IBus>(RabbitHutch.CreateBus(Configuration["messagebroker"]?.Trim()));
         }
 
         public void Configure(IApplicationBuilder app)

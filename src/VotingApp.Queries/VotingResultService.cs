@@ -51,7 +51,7 @@ namespace VotingApp.Queries
     {
         public static IServiceCollection AddVotingResultsService(this IServiceCollection services, IConfiguration configuration) => services
             .AddEasyWebSockets()
-            .AddSingleton<IBus>(RabbitHutch.CreateBus(configuration["messagebroker"]?.Trim() ?? "amqp://guest:guest@localhost:5672"))
+            .AddSingleton<IBus>(RabbitHutch.CreateBus(configuration["messagebroker"]?.Trim()))
             .AddSingleton<VotingResultsService>();
 
         public static IApplicationBuilder UseVotingResultsService(this IApplicationBuilder app)
