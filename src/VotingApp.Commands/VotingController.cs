@@ -23,7 +23,7 @@ namespace VotingApp.Commands
 
         [HttpPost]
         public async Task<object> Start([FromBody]string[] topics) =>
-            await ExecuteCommand( aggregate => aggregate.Start(topics));
+            await ExecuteCommand(aggregate => aggregate.Start(topics));
 
         [HttpPut]
         public async Task<object> Vote([FromBody]string topic) =>
