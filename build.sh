@@ -10,6 +10,10 @@ docker-compose \
     -f docker-compose.infra.yml \
     -f docker-compose.override.yml \
     -f docker-compose.yml \
-    up --build -d --remove-orphans
+    up --build -d 
     
-docker-compose run integration-tests commands
+docker-compose \
+    -f docker-compose.infra.yml \
+    -f docker-compose.override.yml \
+    -f docker-compose.yml \
+    run integration-tests commands

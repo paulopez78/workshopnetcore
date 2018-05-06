@@ -1,7 +1,7 @@
 #!/bin/sh
 function testapi() {
     appjson="Content-Type:application/json"
-    url="http://"${1:-localhost:5000}"/api/voting"
+    url="http://"${1:-localhost:5000}"/voting"
 
     curl --silent --output /dev/null -X POST -H $appjson -d "['c#','f#']" $url
     curl --silent --output /dev/null -X PUT -H $appjson -d '"c#"' $url
