@@ -46,7 +46,7 @@ function integration_tests()
         --namespace $NAMESPACE \
         --image=$REGISTRY/integration-tests:$NAMESPACE \
         --rm \
-        -- votingapp-commands
+        -- votingapp-commands/
 }
 
 set -e
