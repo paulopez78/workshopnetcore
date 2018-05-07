@@ -70,7 +70,7 @@
 *   full ci cd with docker and kubectl
 
 ### Refactoring towards EventSourcing, CQRS and microservices
-*   [Sample voting app with eventsourcing architecture](https://github.com/paulopez78/workshopnetcore/tree/eventsourcing)
+*   [Sample voting app with eventsourcing architecture](https://github.com/paulopez78/workshopnetcore/tree/cqrs)
 *   create votingapp commands and votingapp queries
 *   Add rabbit and postgresql images 
 *   Development workflow with docker
