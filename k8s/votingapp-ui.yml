@@ -1,33 +1,32 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: votingapp
+  name: votingapp-ui
 spec:
   template:
     metadata:
       labels:
-        app: votingapp
-        environment: staging
+        app: votingapp-ui
     spec:
       containers:
-      - name: votingapp
-        image: localhost:30400/votingapp:${TAG}
+      - name: votingapp-ui
+        image: localhost:30400/votingapp-ui:${TAG}
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: votingapp
+  name: votingapp-ui
 spec:
   ports:
     - port: 80
   selector:
-    app: votingapp
+    app: votingapp-ui
 
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
- name: votingapp
+ name: votingapp-ui
 spec:
   rules:
   - host: votingapp.io
@@ -35,5 +34,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: votingapp
+          serviceName: votingapp-ui
           servicePort: 80

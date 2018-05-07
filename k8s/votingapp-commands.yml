@@ -1,0 +1,49 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: votingapp-commands
+spec:
+  template:
+    metadata:
+      labels:
+        app: votingapp-commands
+    spec:
+      containers:
+      - name: votingapp-commands
+        image: localhost:30400/votingapp-commands:${TAG}
+        env:
+        - name: dbconnection
+          valueFrom:
+            secretKeyRef:
+              name: votingapp-secrets
+              key: dbconnection
+        - name: messagebroker
+          valueFrom:
+            secretKeyRef:
+              name: votingapp-secrets
+              key: messagebroker
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: votingapp-commands
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: votingapp-commands
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: votingapp-commands
+spec:
+  rules:
+  - host: votingapp.io
+    http: 
+      paths:
+      - path: /commands
+        backend:
+          serviceName: votingapp-commands
+          servicePort: 80

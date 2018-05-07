@@ -30,6 +30,14 @@ services:
         api: ${VOTINGAPP_GATEWAY}
         static: ${VOTINGAPP_UI}
 
+  ui:
+    image: ${REGISTRY}/votingapp-ui:${TAG}
+    build:
+      context: .
+      dockerfile: ${VOTINGAPP_UI}/Dockerfile
+      args:
+        static: ${VOTINGAPP_UI}
+
   integration-tests:
     image: ${REGISTRY}/integration-tests:${TAG}
     build:

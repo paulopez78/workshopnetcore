@@ -18,8 +18,8 @@ function testapi() {
 }
 
 retry=0
-maxRetries=3
-retryInterval=2
+maxRetries=5
+retryInterval=3
 until [ ${retry} -ge ${maxRetries} ]
 do
 	testapi $1 && break
