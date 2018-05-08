@@ -1,5 +1,6 @@
 docker pull ubuntu
 docker pull alpine
+docker pull nginx
 
 docker pull microsoft/dotnet:runtime-deps
 docker pull microsoft/dotnet:runtime
