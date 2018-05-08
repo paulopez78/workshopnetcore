@@ -24,9 +24,15 @@ function deploy_registry()
     kubectl rollout status deployment/registry
 }
 
+function install_helm()
+{
+    kubectl create serviceaccount --namespace kube-system tiller
+    kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+    helm init --upgrade --service-account tiller --wait
+}
+
 function deploy_infra()
 {
-    helm init --upgrade --wait
     helm install stable/rabbitmq --name 'rabbit-'${NAMESPACE} --namespace $NAMESPACE --wait
     helm install stable/postgresql --name 'postgresql-'${NAMESPACE} --namespace $NAMESPACE --wait
 }
@@ -48,6 +54,8 @@ function integration_tests()
         --rm \
         -- votingapp-commands/
 }
+
+install_helm
 
 set -e
 export REGISTRY=localhost:30400
