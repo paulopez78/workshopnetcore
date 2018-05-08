@@ -22,7 +22,7 @@
     ```
 * Start **minikube** [**with hyperV**](https://medium.com/@JockDaRock/minikube-on-windows-10-with-hyper-v-6ef0f4dc158c) 
     ```powershell
-    minikube start --bootstrapper=kubeadm --vm-driver="hyperv" --memory=4096 --cpus=2 --hyperv-virtual-switch="<name of the created virtual switch>"
+    minikube start --bootstrapper=kubeadm --vm-driver="hyperv" --memory=4096 --cpus=2 --hyperv-virtual-switch="Primary Virtual Switch"
     ```
-* Connect to minikube docker engine  ``./minikube-docker.ps1``
+* Connect to minikube docker engine  ``./minikube-docker.ps1`` (https://github.com/paulopez78/workshopnetcore/blob/master/minikube-docker.ps1)
 * Pull docker images inside minikube executing ``./pull.sh`` (https://github.com/paulopez78/workshopnetcore/blob/master/pull.sh)
