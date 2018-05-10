@@ -3,6 +3,7 @@
 ### Basic Requirements:
 * [.NET Core SDK](https://www.microsoft.com/net/download/core)
 * [Git for Windows](https://git-scm.com/)
+* [**Chocolatey**](https://chocolatey.org/)
 * [Visual Studio Code](https://code.visualstudio.com/) with C# and Docker extensions
 * [Visual Studio 2017 CE](https://www.visualstudio.com/free-developer-offers/)
 * [Docker CE](https://www.docker.com/community-edition#/download)
@@ -14,7 +15,6 @@
 * [ILSpy](http://ilspy.net/)
 
 ### Local Kubernetes with **minikube**
-* Install [**chocolatey**](https://chocolatey.org/)
 * Install [**minikube**](https://github.com/kubernetes/minikube) and [**Helm**](https://github.com/kubernetes/helm)   
     ```bash
     choco install minikube
