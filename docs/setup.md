@@ -1,6 +1,6 @@
 ## Setup and installation:
 
-### Basic Requirements:
+### Basic Requirements (Windows 10 Pro):
 * [.NET Core SDK](https://www.microsoft.com/net/download/core)
 * [Git for Windows](https://git-scm.com/)
 * [Chocolatey](https://chocolatey.org/)
