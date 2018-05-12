@@ -6,8 +6,8 @@
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.0-rc1-final" />
     <PackageReference Include="EasyNetQ" Version="2.3.3" />
     <PackageReference Include="EasyWebSockets" Version="0.0.7" />
-    <PackageReference Include="Marten" Version="2.7.1" />
-    <PackageReference Include="Polly" Version="5.9.0" />
+    <PackageReference Include="Marten" Version="2.8" />
+    <PackageReference Include="Polly" Version="6.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VotingApp.Domain\VotingApp.Domain.csproj" />
