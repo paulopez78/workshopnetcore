@@ -3,7 +3,7 @@ function deploy_votingapp()
     postgrePassword=$(kubectl get secret --namespace ${NAMESPACE} postgresql-${NAMESPACE} -o jsonpath="{.data.postgres-password}" | base64 --decode)
     rabbitPassword=$(kubectl get secret --namespace ${NAMESPACE} rabbit-${NAMESPACE}-rabbitmq -o jsonpath="{.data.rabbitmq-password}" | base64 --decode)
     dbconnection='Username=postgres;Password='${postgrePassword}';Host=postgresql-'${NAMESPACE}''
-    messagebroker='amqp://guest:'${rabbitPassword}'@rabbit-'${NAMESPACE}'-rabbitmq'
+    messagebroker='amqp://user:'${rabbitPassword}'@rabbit-'${NAMESPACE}'-rabbitmq'
 
     kubectl create secret generic votingapp-secrets \
         --from-literal=dbconnection=$dbconnection \
@@ -52,7 +52,7 @@ function integration_tests()
         --namespace $NAMESPACE \
         --image=$REGISTRY/integration-tests:$NAMESPACE \
         --rm \
-        -- votingapp-commands/
+        -- votingapp-commands
 }
 
 install_helm
