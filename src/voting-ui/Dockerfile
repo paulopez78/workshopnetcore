@@ -6,4 +6,4 @@ RUN npm install -g http-server
 WORKDIR /app
 COPY ${static} .
 
-ENTRYPOINT [ "http-server" ]
+ENTRYPOINT [ "http-server", "-p", "80" ]
