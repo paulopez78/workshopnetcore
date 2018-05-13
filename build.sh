@@ -1,5 +1,16 @@
 set -e
 
-docker-compose down
-docker-compose up -d --build
-docker-compose run integration-tests app
+docker-compose \
+    -f docker-compose.override.yml \
+    -f docker-compose.yml \
+    down
+
+docker-compose \
+    -f docker-compose.override.yml \
+    -f docker-compose.yml \
+    up -d --build
+
+docker-compose \
+    -f docker-compose.override.yml \
+    -f docker-compose.yml \
+    run integration-tests app
