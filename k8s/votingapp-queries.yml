@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: votingapp-queries
 spec:
+  replicas: 3
   template:
     metadata:
       labels:
