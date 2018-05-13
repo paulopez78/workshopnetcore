@@ -39,7 +39,7 @@ namespace VotingApp.Queries
                 projection = new VotingProjection(events);
             }
 
-            _bus.SubscribeAsync<VotingEvent>("VotingEvents", async @event =>
+            _bus.SubscribeAsync<VotingEvent>($"VotingEvents-{Guid.NewGuid()}", async @event =>
             {
                 projection.Apply(@event);
                 await _wsPublisher.SendMessageToAllAsync(projection);
