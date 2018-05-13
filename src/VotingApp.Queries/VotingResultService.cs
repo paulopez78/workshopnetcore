@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Polly;
 using VotingApp.Domain;
 
@@ -20,13 +21,15 @@ namespace VotingApp.Queries
         private readonly IDocumentStore _eventStore;
         private readonly IBus _bus;
         private readonly IWebSocketPublisher _wsPublisher;
+        private readonly ILogger<VotingResultsService> _logger;
         private VotingProjection projection;
 
-        public VotingResultsService(IDocumentStore eventStore, IBus bus, IWebSocketPublisher wsPublisher)
+        public VotingResultsService(IDocumentStore eventStore, IBus bus, IWebSocketPublisher wsPublisher, ILogger<VotingResultsService> logger)
         {
             _eventStore = eventStore;
             _bus = bus;
             _wsPublisher = wsPublisher;
+            _logger = logger;
         }
         public object Get() => projection;
 
@@ -42,7 +45,15 @@ namespace VotingApp.Queries
             _bus.SubscribeAsync<VotingEvent>($"VotingEvents-{Guid.NewGuid()}", async @event =>
             {
                 projection.Apply(@event);
-                await _wsPublisher.SendMessageToAllAsync(projection);
+
+                try
+                {
+                    await _wsPublisher.SendMessageToAllAsync(projection);
+                }
+                catch(Exception ex)
+                {
+                    _logger.LogError(ex, "error sending message to websocket");
+                }
             });
         }
     }
