@@ -13,7 +13,7 @@ function deploy_votingapp()
     for deployment in commands queries ui
     do
         component=votingapp-$deployment
-        sed 's/${TAG}/'${NAMESPACE}'/g' k8s/$component.yml | kubectl apply -f - -n $NAMESPACE
+        sed 's/${TAG}/'${TAG}'/g' k8s/$component.yml | kubectl apply -f - -n $NAMESPACE
         kubectl rollout status deployment/$component -n $NAMESPACE
     done
 }
@@ -73,3 +73,10 @@ integration_tests
 destroy_infra
 
 # DEPLOY TO PRODUCTION
+set +e
+export NAMESPACE=production
+
+kubectl create namespace production
+deploy_infra
+deploy_votingapp
+
