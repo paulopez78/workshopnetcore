@@ -11,6 +11,7 @@
 * [Visual Studio Code](https://code.visualstudio.com/) with C# and Docker extensions
 * [Visual Studio 2017 CE](https://www.visualstudio.com/free-developer-offers/)
 * [Docker CE](https://www.docker.com/community-edition#/download)
+* Sign up in [Docker Hub](https://hub.docker.com/)
 * Start docker and execute ``./pull.sh`` (https://github.com/paulopez78/workshopnetcore/blob/master/pull.sh)
 
 ### Optional Requirements:
