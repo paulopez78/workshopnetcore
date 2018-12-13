@@ -1,6 +1,0 @@
-version: "3.4"
-
-services:
-  votingapi:
-    working_dir: /app/src/VotingApp.Api/
-    command: dotnet publish -o ../../build

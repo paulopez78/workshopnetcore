@@ -1,9 +1,9 @@
-FROM microsoft/aspnetcore-build
+FROM microsoft/dotnet:2.2-sdk
 ENV NUGET_XMLDOC_MODE skip
 WORKDIR /vsdbg
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        unzip \
+    unzip \
     && rm -rf /var/lib/apt/lists/* \
     && curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg 
 
