@@ -4,7 +4,4 @@
             <RemoveDir Directories="bin" />
             <RemoveDir Directories="obj" />
       </Target>
-      <ItemGroup>
-            <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.1" />
-      </ItemGroup>
 </Project>

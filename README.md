@@ -1,6 +1,7 @@
 ## .NET Core Workshops
 
-Super simple real time sample voting app using .net core and docker.
+Real time sample voting app using .net core, docker and kubernetes
+
 * [Slides Deck](https://docs.google.com/presentation/d/e/2PACX-1vSAVNi0ugfcoN8E9LgRiDCcH6qUFmDW-hT9paiI-ODjlhcSwv6WAizsS2VC8ZXFEFYpbWjkVxa6M6IW/pub)
 
 * Run with [**docker compose**](https://www.docker.com/products/docker) 

@@ -3,9 +3,9 @@ function testapi() {
     appjson="Content-Type:application/json"
     url="http://"${1:-localhost:5000}"/api/voting"
 
-    curl --silent --output /dev/null -X POST -H $appjson -d "['c#','f#']" $url
-    curl --silent --output /dev/null -X PUT -H $appjson -d '"c#"' $url
-    winner=$(curl -X DELETE -H $appjson $url | jq -r '.winner')
+    curl --silent --request POST --header $appjson --data "['c#','f#']" $url
+    curl --silent --request PUT --header $appjson --data '"c#"' $url
+    winner=$(curl --silent --request DELETE --header $appjson $url | jq -r '.winner')
 
     if [ "$winner" == "c#" ]
     then
