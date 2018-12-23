@@ -54,9 +54,9 @@
 
 ## Session 3: orchestrate with kubernetes
 
-### Deploy to Minikube 
-*   Install minikube
-*   Addons (heapster)
+### Deploy to local kubernetes
+*   Enable kubernetes in Docker for windows/mac
+*   Install Addons (dashboard, heapster)
 *   kubectl basic commands: context, get
 *   reuse the docker engine for building and pushing
 *   run votingapp within a pod, use kubectl port-forward
