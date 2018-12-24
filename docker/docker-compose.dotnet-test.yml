@@ -1,6 +1,0 @@
-version: "3.4"
-
-services:
-  votingapi:
-    working_dir: /app/test/VotingApp.Tests/
-    command: dotnet test
