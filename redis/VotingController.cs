@@ -33,34 +33,38 @@ namespace VotingApp.Api.Controllers
     }
 
     [HttpGet]
-    public async Task<VotingDto> Get() => await GetVotingDto();
+    public async Task<VotingState> Get() => await GetVotingState();
 
     [HttpPost]
-    public async Task<VotingDto> Start([FromBody] string[] topics) =>
+    public async Task<VotingState> Start([FromBody] string[] topics) =>
       await Execute(v => v.Start(topics));
 
     [HttpPut]
-    public async Task<VotingDto> Vote([FromBody] string topic) =>
+    public async Task<VotingState> Vote([FromBody] string topic) =>
       await Execute(v => v.Vote(topic));
 
     [HttpDelete]
-    public async Task<VotingDto> Finish() =>
+    public async Task<VotingState> Finish() =>
       await Execute(v => v.Finish());
 
-    private async Task<VotingDto> GetVotingDto()
+    private async Task<VotingState> GetVotingState()
     {
       var votingState = await _redisDb.StringGetAsync(VotingAppKey);
-      return JsonConvert.DeserializeObject<VotingDto>(votingState);
+      return (votingState.HasValue)
+        ? JsonConvert.DeserializeObject<VotingState>(votingState)
+        : new VotingState();
     }
 
-    private async Task<VotingDto> Execute(Action<Voting> votingCommand)
+    private async Task<VotingState> Execute(Func<Voting, VotingState> votingCommand)
     {
-      var votingDto = await GetVotingDto();
-      var voting = new Voting(votingDto);
-      votingCommand(voting);
-      await _redisDb.StringSetAsync(VotingAppKey, JsonConvert.SerializeObject(voting.VotingDto));
-      await _ws.SendMessageToAllAsync(votingDto);
-      return votingDto;
+      var votingState = await GetVotingState();
+      var voting = new Voting(votingState);
+
+      var newVotingState = votingCommand(voting);
+
+      await _redisDb.StringSetAsync(VotingAppKey, JsonConvert.SerializeObject(newVotingState));
+      await _ws.SendMessageToAllAsync(newVotingState);
+      return newVotingState;
     }
   }
 }

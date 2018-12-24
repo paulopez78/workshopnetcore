@@ -7,35 +7,34 @@ namespace VotingApp.Domain
 {
   public class Voting
   {
-    public Dictionary<string, int> Votes { get; private set; }
-    public string Winner { get; private set; }
-
-    public Voting(VotingDto votingDto)
+    private readonly VotingState _state;
+    public Voting(VotingState state)
     {
-      Votes = votingDto.Votes;
-      Winner = votingDto.Winner;
+      _state = state;
     }
 
-    public void Start(params string[] options)
+    public Voting()
     {
-      Votes = options.ToDictionary(x => x, _ => 0);
+      _state = new VotingState();
     }
 
-    public void Vote(string topic, int step = 1)
+    public VotingState Start(params string[] options)
     {
-      Votes[topic] = Votes[topic] + step;
+      _state.Votes = options.ToDictionary(x => x, _ => 0);
+      return _state;
     }
 
-    public void Finish()
+    public VotingState Vote(string topic, int step = 1)
     {
-      var maxVotes = Votes.Max(x => x.Value);
-      Winner = Votes.First(x => x.Value == maxVotes).Key;
+      _state.Votes[topic] = _state.Votes[topic] + step;
+      return _state;
     }
 
-    public VotingDto VotingDto => new VotingDto
+    public VotingState Finish()
     {
-      Votes = Votes,
-      Winner = Winner
-    };
+      var maxVotes = _state.Votes.Max(x => x.Value);
+      _state.Winner = _state.Votes.First(x => x.Value == maxVotes).Key;
+      return _state;
+    }
   }
 }
