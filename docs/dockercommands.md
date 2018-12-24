@@ -13,6 +13,10 @@
     ```powershell
     docker run -it -v ${PWD}:/app --workdir /app microsoft/dotnet:sdk
     ```
+    * **Git Bash**
+    ```bash
+    docker run -it -v /${PWD}:/app --workdir //app microsoft/dotnet:sdk
+    ```
 * Run `VotingApp.Api` using image `microsoft/dotnet:sdk`
     * **Bash**
     ```bash
