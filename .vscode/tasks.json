@@ -5,7 +5,7 @@
     "tasks": [
         {
             "label": "build",
-            "command": "dotnet build",
+            "command": "./build.sh",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -14,8 +14,8 @@
         },
         {
             "label": "test",
-            "command": "dotnet test",
-            "type": "shell",            
+            "command": "./unit-test.sh",
+            "type": "shell",
             "group": {
                 "kind": "test",
                 "isDefault": true
@@ -23,12 +23,12 @@
         },
         {
             "label": "clean",
-            "type": "shell",            
+            "type": "shell",
             "command": "dotnet clean"
         },
         {
             "label": "publish",
-            "type": "shell",            
+            "type": "shell",
             "command": "dotnet publish -o bin/build"
         }
     ]

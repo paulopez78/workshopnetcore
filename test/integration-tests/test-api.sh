@@ -1,5 +1,5 @@
 #!/bin/sh
-function testapi() {
+testapi() {
     appjson="Content-Type:application/json"
     url="http://"${1:-localhost:5000}"/api/voting"
 

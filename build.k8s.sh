@@ -1,18 +1,15 @@
-function deploy()
-{
+deploy() {
     kubectl create namespace $1
     sed 's/${TAG}/'${TAG}'/g' k8s/votingapp.yml | kubectl apply -f - -n $1
     kubectl rollout status deployment/votingapp -n $1
 }
 
-function deploy_registry()
-{
+deploy_registry() {
     kubectl apply -f k8s/registry.yml
     kubectl rollout status deployment/registry
 }
 
-function integration_tests()
-{
+integration_tests() {
     kubectl run integration-tests \
         --attach \
         --restart=Never \
