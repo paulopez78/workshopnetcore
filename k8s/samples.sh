@@ -10,7 +10,7 @@ scale_rc(){
     kubectl scale rc votingapp --replicas=3
 }
 
-
+kubectl run --generator=run-pod/v1
 kubectl port-forward pod-name 8080:80
 kubectl get pods --show-labels
 kubectl get pods -L run, app
