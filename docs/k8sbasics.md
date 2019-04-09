@@ -6,7 +6,9 @@
 *  kubectl command line tool basics
     *  kubectl cluster-info
     *  kubectl config get-contexts
+        * kubectx and kubens
     *  kubectl get/decribe nodes
+    *  kubectl explain nodes
 
 *  Pod resource
     *  kubectl run --generator=run-pod/v1
@@ -17,9 +19,14 @@
     *  kubectl expose pod votingapp --type=NodePort
     *  curl http://localhost:30834/api/voting
     *  kubectl get pod votingapp -o yaml > pod.yaml 
+    *  add nginx container to votingapp pod
+        * hostname -I
+    *  kubectl exec -it votingapp -c gateway -- sh
     *  labels
         *  kgp --show-labels
         *  kgp -L app,env -l app,env=pro --all-namespaces
+        *  k label po votingapp app=votingapp --overwrite
+    *  kubectl get svc votingapp -o yaml > svc.yaml 
 
 *  Kubernetes dashboard
 
@@ -27,6 +34,7 @@
     *  kubectl run --generator=run/v1
     *  label selectors
     *  --watch
+    *  Manual rolling update with rc
 
 *  Services ,endpoints and networking
     *  kubectl run --generator=run/v1
