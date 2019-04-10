@@ -7,8 +7,10 @@
     *  kubectl cluster-info
     *  kubectl config get-contexts
         * kubectx and kubens
+        * https://github.com/ahmetb/kubectx
     *  kubectl get/decribe nodes
     *  kubectl explain nodes
+* Kubernetes dashboard
 
 *  Pod resource
     *  kubectl run --generator=run-pod/v1
@@ -28,15 +30,22 @@
         *  k label po votingapp app=votingapp --overwrite
     *  kubectl get svc votingapp -o yaml > svc.yaml 
 
-*  Kubernetes dashboard
-
 *  Replication Controller
     *  kubectl run --generator=run/v1
     *  label selectors
     *  --watch
     *  Manual rolling update with rc
 
-*  Services ,endpoints and networking
-    *  kubectl run --generator=run/v1
+*  Services ,endpoints, DNS, and networking
+    * https://hub.docker.com/r/tutum/dnsutils
+    * kubectl run dnsutils --image=tutum/dnsutils --generator=run-pod/v1 --command -- sleep infinity
+    * kubedns server, /etc/resolv.conf, environment variables
+    * headless services (without clusterIP)
 
-*  CI/CD with Deployments
+*  ConfigMaps and Secrets
+    * k create configmap votingapp-staging --from-file=src/VotingApp.Api/appsettings.json
+    
+
+*  ReplicaSets and Deployments
+*  Persistent Volumes
+*  Stateful
