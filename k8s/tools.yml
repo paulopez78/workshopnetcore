@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tools
+spec:
+  containers:
+  - name: curl
+    image: tutum/curl
+    command: ["sleep", "infinity"]
+  - name: dns
+    image: tutum/dnsutils
+    command: ["sleep", "infinity"]

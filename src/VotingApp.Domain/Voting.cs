@@ -27,12 +27,12 @@ namespace VotingApp.Domain
             }
         }
 
-        public void Vote(string topic)
+        public void Vote(string topic, int votingStep = 1)
         {
             AssertOnGoingVoting();
             AssertValidTopic();
 
-            Votes[topic] = ++Votes[topic];
+            Votes[topic] = Votes[topic] + votingStep;
 
             void AssertValidTopic()
             {

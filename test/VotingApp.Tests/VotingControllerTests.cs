@@ -15,14 +15,14 @@ namespace VotingApp.Tests
         {
             // Arrange and Act
             var voting = new Voting();
-            var controller = new VotingController(voting, null);
+            var controller = new VotingController(voting, null, null);
 
 
             var result = await controller.Start(new string[] { "C#", "F#" });
 
             // Assert
             Assert.Equal(
-                JsonConvert.SerializeObject(voting.GetState()), 
+                JsonConvert.SerializeObject(voting.GetState()),
                 JsonConvert.SerializeObject(result));
         }
 
@@ -31,7 +31,7 @@ namespace VotingApp.Tests
         {
             // Arrange 
             var voting = new Voting();
-            var controller = new VotingController(voting, null);
+            var controller = new VotingController(voting, null, null);
 
             await controller.Start(new string[] { "C#", "F#" });
 
@@ -49,7 +49,7 @@ namespace VotingApp.Tests
         {
             // Arrange and Act
             var voting = new Voting();
-            var controller = new VotingController(voting, null);
+            var controller = new VotingController(voting, null, null);
 
             await controller.Start(new string[] { "C#", "F#" });
             await controller.Vote("C#");

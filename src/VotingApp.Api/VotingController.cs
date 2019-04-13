@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyWebSockets;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using VotingApp.Domain;
 
 namespace VotingApp.Api
@@ -13,11 +14,13 @@ namespace VotingApp.Api
     {
         private readonly Voting _voting;
         private readonly IWebSocketPublisher _wsPublisher;
+        private readonly int _votingStep;
 
-        public VotingController(Voting voting, IWebSocketPublisher wsPublisher)
+        public VotingController(Voting voting, IWebSocketPublisher wsPublisher, IOptions<VotingOptions> options)
         {
             _voting = voting;
             _wsPublisher = wsPublisher;
+            _votingStep = options?.Value?.VotingStep ?? 1;
         }
 
         [HttpGet]
@@ -30,7 +33,7 @@ namespace VotingApp.Api
 
         [HttpPut]
         public async Task<object> Vote([FromBody]string topic) =>
-            await ExecuteCommand(() => _voting.Vote(topic));
+            await ExecuteCommand(() => _voting.Vote(topic, _votingStep));
 
         [HttpDelete]
         public async Task<object> Finish() =>
@@ -38,7 +41,7 @@ namespace VotingApp.Api
 
         private async Task<object> ExecuteCommand(Action action)
         {
-            action();            
+            action();
             var votingState = _voting.GetState();
             await PublishState();
             return votingState;
@@ -49,7 +52,7 @@ namespace VotingApp.Api
                 {
                     await _wsPublisher.SendMessageToAllAsync(votingState);
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     //Log
                 }

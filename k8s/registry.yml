@@ -72,8 +72,6 @@ spec:
       - image: registry:2
         name: registry
         volumeMounts:
-        - name: docker
-          mountPath: /var/run/docker.sock
         - name: registry-persistent-storage
           mountPath: /var/lib/registry
         ports:
@@ -89,9 +87,6 @@ spec:
         - name: REGISTRY_NAME
           value: cluster-registry
       volumes:
-      - name: docker
-        hostPath:
-          path: /var/run/docker.sock
       - name: registry-persistent-storage
         persistentVolumeClaim:
           claimName: registry-claim
