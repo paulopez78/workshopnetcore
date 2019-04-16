@@ -2,40 +2,19 @@
 
 ### Kubernetes local setup: docker for desktop vs minikube
 *  kubernetes building blocks
+    * Kubernetes cluster explanation
+    * Docker-for-desktop or minikube
 
-*  kubectl command line tool basics
-    *  kubectl cluster-info
-    *  kubectl config get-contexts
-        * kubectx and kubens
-        * https://github.com/ahmetb/kubectx
-    *  kubectl get/decribe nodes
-    *  kubectl explain nodes
-    *  kubernetes dashboard
-
-*  Pod resource
-    *  kubectl run --generator=run-pod/v1
-    *  kubectl logs votingapp
-    *  kubectl exec -it votingapp -- sh
-    *  kubectl port-forward votingapp 8080:80
-    *  curl http://localhost:8080/api/voting
-    *  kubectl expose pod votingapp --type=NodePort
-    *  curl http://localhost:30834/api/voting
-    *  kubectl get pod votingapp -o yaml > pod.yaml 
-    *  add nginx container to votingapp pod
-        * hostname -I
-    *  kubectl exec -it votingapp -c gateway -- sh
-    *  labels
-        *  kgp --show-labels
-        *  kgp -L app,env -l app,env=pro --all-namespaces
-        *  k label po votingapp app=votingapp --overwrite
-            kubectl get pod -l run=votingapp
-            kubectl get pod -l run=votingapp,env=test
-            kubectl get pod -l 'run in (votingapp)'
-            kubectl get pod -l 'run in (votingapp)'
-            kubectl get pod -l '!run'
-    *  kubectl get svc votingapp -o yaml > svc.yaml 
-    *  health checks: readiness and liveliness proof
-    *  k patch svc votingapp -p '{"spec":{"selector":{"run":"votingapp2"}}}'
+*  Pods and Services Basics
+    * https://kubernetes.io/docs/reference/kubectl/conventions/
+    * Create votignapp with kubectl run, explain the pod concept.
+    * Expose votignapp with kubectl expose, explain the service concept. 
+    * Expose votingapp using NodePort
+    * Use dnstools explaining DNS networking.
+    * Upgrading votingapp to version2:
+        * Set image downtime.
+        * Create votingapp v2 (rolling update)
+        * blue-green and rollback
 
 *  Replication Controller and ReplicaSets
     *  kubectl run --generator=run/v1
@@ -43,20 +22,22 @@
     *  --watch
     *  Manual rolling update with rc
 
-*  Services ,endpoints, DNS, and networking
+*  Services, endpoints, DNS, and networking
     * kubectl run dnsutils --image=paulopez/dnsutils --generator=run-pod/v1 --command -- sleep infinity
     * kubedns server, /etc/resolv.conf, environment variables
     * headless services (without clusterIP)
-    * Ingress
 
 *  ConfigMaps and Secrets
     * k create configmap votingapp-staging --from-file=src/VotingApp.Api/appsettings.json
     * mount appsettings.secrets.json as a secret
+    * Add nginx as sidecar container of votingapp
 
 *  Deployments and Rolling Updates
     * kubectl set image deployment/votingapp votingapp=localhost:30400/votingapp:latest
     * kubectl rollout history deployments votingapp
     * kubectl rollout undo deployment/votingapp --to-revision=1
+
+* Ingress Controller
 
 * Kubernetes API    
     * kubectl proxy
