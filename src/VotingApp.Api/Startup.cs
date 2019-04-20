@@ -1,7 +1,11 @@
-﻿using EasyWebSockets;
+﻿using System;
+using System.Threading.Tasks;
+using EasyWebSockets;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using VotingApp.Domain;
 
 namespace VotingApp.Api
@@ -14,6 +18,15 @@ namespace VotingApp.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // services.AddHealthChecks()
+            //     .AddCheck("liveness",
+            //     () => DateTime.Now.Second > 30 ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy(),
+            //     new[] { "live" })
+
+            //     .AddCheck("readiness",
+            //     () => DateTime.Now.Second > 30 ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy(),
+            //     new[] { "ready" });
+
             services.AddSingleton(new Voting());
             services.Configure<VotingOptions>(Configuration);
             services.AddMvc();
@@ -26,6 +39,14 @@ namespace VotingApp.Api
             .UseDefaultFiles()
             .UseStaticFiles()
             .UseExceptionHandler()
+            // .UseHealthChecks("/hc/ready", new HealthCheckOptions
+            // {
+            //     Predicate = check => check.Tags.Contains("ready"),
+            // })
+            // .UseHealthChecks("/hc/live", new HealthCheckOptions
+            // {
+            //     Predicate = check => check.Tags.Contains("live"),
+            // })
             .UseMvc()
             .UseEasyWebSockets();
     }
