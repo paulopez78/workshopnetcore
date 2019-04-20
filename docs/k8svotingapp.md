@@ -38,6 +38,7 @@
     * kubectl rollout undo deployment/votingapp --to-revision=1
 
 * Ingress Controller
+    * kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
 
 * Kubernetes API    
     * kubectl proxy
