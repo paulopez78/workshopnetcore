@@ -1,12 +1,23 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tools
+  labels:
+    app: tools 
+  name: tools 
 spec:
   containers:
   - name: curl
     image: tutum/curl
     command: ["sleep", "infinity"]
+    volumeMounts:
+    - name: logs
+      mountPath: /tools
   - name: dns
     image: tutum/dnsutils
     command: ["sleep", "infinity"]
+    volumeMounts:
+    - name: logs
+      mountPath: /tools
+  volumes:
+  - name: logs
+    emptyDir: {}
