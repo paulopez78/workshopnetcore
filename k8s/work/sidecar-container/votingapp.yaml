@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: votingapp
+  name: votingapp
+spec:
+  containers:
+  - image: paulopez/votingapp:1
+    name: votingapp
+    env:
+    - name: ASPNETCORE_URLS
+      value: http://localhost:8080
+
+  - image: nginx
+    name: gateway
+    volumeMounts:
+    - name: config
+      mountPath: /etc/nginx/conf.d
+      readOnly: true
+
+  volumes:
+  - name: config
+    configMap:
+      name: votingapp 
