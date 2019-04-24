@@ -1,14 +1,23 @@
 ## Kubernetes Workshop 
 
-### Kubernetes local setup: docker for desktop vs minikube
-*  kubernetes building blocks
+### Kubernetes Basics
+
+*  kubernetes building blocks and local setup
     * Kubernetes cluster explanation
-    * Docker-for-desktop or minikube
-    * GKE
+    * Local kubernetes: Docker-for-desktop or minikube
+    * Cloud kubernetes: GKE, EKS, AKS
+    * Install WSL (for windows users), [oh-my-zsh, kubectl plugin](https://github.com/robbyrussell/oh-my-zsh)
+    * [kubectx and kubens](https://github.com/ahmetb/kubectx)
+    * kubectl config command
+    * kubectl cluster-info
 
 *  Pods and Services Basics
-    * https://kubernetes.io/docs/reference/kubectl/conventions/
     * Create votignapp with kubectl run, explain the pod concept.
+        * k port-forward
+        * k logs
+        * k exec 
+        * k proxy, curl http://localhost:8001/api/v1/namespaces/default/pods/votingapp/proxy/
+        * k proxy, curl http://localhost:8001/api/v1/namespaces/default/services/votingapp/proxy/
     * Expose votignapp with kubectl expose, explain the service concept. 
     * Expose votingapp using NodePort
     * Use dnstools explaining DNS networking.
@@ -30,8 +39,7 @@
 
 *  ConfigMaps and Secrets
     * Add nginx as sidecar container of votingapp
-    * k create configmap votingapp-staging --from-file=src/VotingApp.Api/appsettings.json
-    * mount appsettings.secrets.json as a secret
+    * mount appsettings.json as configmap and appsettings.secrets.json as a secret
 
 * Ingress Controller
     * kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
@@ -45,7 +53,11 @@
 *  Stateful and Persistent Volumes
     * Votingapp with redis database
 
+### Helm Package Manager
+
 * Helm package manager
+
+### Kubernetes advanced topics
 
 * Kubernetes API (optional)
     * kubectl proxy
