@@ -20,11 +20,11 @@
         * k proxy, curl http://localhost:8001/api/v1/namespaces/default/services/votingapp/proxy/
     * Expose votignapp with kubectl expose, explain the service concept. 
     * Expose votingapp using NodePort
-    * Use dnstools explaining DNS networking.
     * Upgrading votingapp to version2:
         * Set image downtime.
         * Create votingapp v2 (rolling update)
         * blue-green and rollback
+    * Use dnstools explaining DNS networking.
     * Multicontainer pod with curl and nslookup tools and introduction to a Volume emptyDir.
 
 *  Services, endpoints, DNS, and networking

@@ -1,18 +1,3 @@
-kind: PersistentVolume
-apiVersion: v1
-metadata:
-  name: registry
-  labels:
-    type: local
-spec:
-  capacity:
-    storage: 4Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/data/registry/"
-
----
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -22,9 +7,8 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 4Gi
+      storage: 1Gi
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -39,8 +23,8 @@ spec:
     app: registry
     tier: registry
   type: NodePort
----
 
+---
 apiVersion: v1
 kind: Service
 metadata:
