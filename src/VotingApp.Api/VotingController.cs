@@ -12,45 +12,49 @@ namespace VotingApp.Api
     [Route("api/[controller]")]
     public class VotingController : Controller
     {
-        private readonly Voting _voting;
+        private readonly IVotingService _votingService;
         private readonly IWebSocketPublisher _wsPublisher;
         private readonly int _votingStep;
 
-        public VotingController(Voting voting, IWebSocketPublisher wsPublisher, IOptions<VotingOptions> options)
+        public VotingController(IVotingService votingService, IWebSocketPublisher wsPublisher, IOptions<VotingOptions> options)
         {
-            _voting = voting;
+            _votingService = votingService;
             _wsPublisher = wsPublisher;
             _votingStep = options?.Value?.VotingStep ?? 1;
         }
 
         [HttpGet]
-        public object Get() =>
-            _voting.GetState();
+        public async Task<object> Get()
+        {
+            var voting = await _votingService.Get();
+            return voting.GetState();
+        }
 
         [HttpPost]
         public async Task<object> Start([FromBody]string[] topics) =>
-            await ExecuteCommand(() => _voting.Start(topics));
+            await ExecuteCommand(voting => voting.Start(topics));
 
         [HttpPut]
         public async Task<object> Vote([FromBody]string topic) =>
-            await ExecuteCommand(() => _voting.Vote(topic, _votingStep));
+            await ExecuteCommand(voting => voting.Vote(topic, _votingStep));
 
         [HttpDelete]
         public async Task<object> Finish() =>
-            await ExecuteCommand(_voting.Finish);
+            await ExecuteCommand(voting => voting.Finish());
 
-        private async Task<object> ExecuteCommand(Action action)
+        private async Task<object> ExecuteCommand(Action<Voting> action)
         {
-            action();
-            var votingState = _voting.GetState();
+            var voting = await _votingService.Get();
+            action(voting);
+            await _votingService.Save(voting);
             await PublishState();
-            return votingState;
+            return voting.GetState();
 
             async Task PublishState()
             {
                 try
                 {
-                    await _wsPublisher.SendMessageToAllAsync(votingState);
+                    await _wsPublisher.SendMessageToAllAsync(voting.GetState());
                 }
                 catch (Exception)
                 {

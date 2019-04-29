@@ -13,6 +13,11 @@ services:
     container_name: votingapp
     ports:
       - 8080:80
+  #   environment: 
+  #     mongodb: "mongodb://mongo:27017"
+
+  # mongo:
+  #   image: mongo
 
   integration-tests:
     image: ${REGISTRY}/integration-tests:${TAG}

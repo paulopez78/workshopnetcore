@@ -10,6 +10,16 @@ namespace VotingApp.Domain
 
         public string Winner { get; private set; }
 
+        public Voting(Dictionary<string, int> votes, string winner)
+        {
+            Votes = votes;
+            Winner = winner;
+        }
+        public Voting()
+        {
+
+        }
+
         public void Start(params string[] topics)
         {
             AssertValidTopics();

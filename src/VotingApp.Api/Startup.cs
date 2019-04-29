@@ -27,12 +27,15 @@ namespace VotingApp.Api
             //     () => DateTime.Now.Second > 30 ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy(),
             //     new[] { "ready" });
 
-            services.AddSingleton(new Voting());
+            services.AddSingleton<IVotingService>(_ =>
+                Configuration["mongodb"] == null
+                    ? new InMemoryVotingService()
+                    : (IVotingService)new MongoDbVotingService(Configuration["mongodb"])
+            );
+
             services.Configure<VotingOptions>(Configuration);
             services.AddMvc();
             services.AddEasyWebSockets();
-            //   var redisConnectionString = Configuration.GetValue("REDIS", "localhost:6379");
-            //   services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConnectionString));
         }
 
         public void Configure(IApplicationBuilder app) => app

@@ -1,5 +1,5 @@
 # BUILDER STAGE
-FROM microsoft/dotnet:2.2-sdk AS builder
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS builder
 ARG api
 ARG tests
 ARG domain
@@ -23,7 +23,7 @@ RUN dotnet test ${tests}
 RUN dotnet publish ${api} -o /publish -c Debug
 
 # BUILDER STAGE
-FROM microsoft/dotnet:2.2-aspnetcore-runtime-alpine
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine
 WORKDIR /publish
 COPY --from=builder /publish .
 ENTRYPOINT ["dotnet", "VotingApp.Api.dll"]

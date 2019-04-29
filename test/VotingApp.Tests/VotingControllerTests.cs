@@ -14,8 +14,9 @@ namespace VotingApp.Tests
         public async Task Given_NotStartedVoting_When_Start_Then_SameState()
         {
             // Arrange and Act
-            var voting = new Voting();
-            var controller = new VotingController(voting, null, null);
+            var votingService = new InMemoryVotingService();
+            var voting = await votingService.Get();
+            var controller = new VotingController(votingService, null, null);
 
 
             var result = await controller.Start(new string[] { "C#", "F#" });
@@ -30,8 +31,9 @@ namespace VotingApp.Tests
         public async Task Given_StartedVoting_When_Vote_Then_SameState()
         {
             // Arrange 
-            var voting = new Voting();
-            var controller = new VotingController(voting, null, null);
+            var votingService = new InMemoryVotingService();
+            var voting = await votingService.Get();
+            var controller = new VotingController(votingService, null, null);
 
             await controller.Start(new string[] { "C#", "F#" });
 
@@ -48,8 +50,9 @@ namespace VotingApp.Tests
         public async Task Given_StartedVoting_WithVotes_When_Finish_Then_SameState()
         {
             // Arrange and Act
-            var voting = new Voting();
-            var controller = new VotingController(voting, null, null);
+            var votingService = new InMemoryVotingService();
+            var voting = await votingService.Get();
+            var controller = new VotingController(votingService, null, null);
 
             await controller.Start(new string[] { "C#", "F#" });
             await controller.Vote("C#");
