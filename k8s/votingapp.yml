@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: votingapp
 spec:
+  replicas: 1
   template:
     metadata:
       labels:
@@ -11,7 +12,10 @@ spec:
     spec:
       containers:
       - name: votingapp
-        image: localhost:30400/votingapp:${TAG}
+        image: votingapp:1
+        env: 
+        - name: "mongodb"
+          value: "mongodb://mongodb-0.mongodb,mongodb-1.mongodb,mongodb-2.mongodb:27017"
         livenessProbe: 
           httpGet:
             path: /hc/live

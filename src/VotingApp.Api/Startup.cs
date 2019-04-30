@@ -18,14 +18,11 @@ namespace VotingApp.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddHealthChecks()
-            //     .AddCheck("liveness",
-            //     () => DateTime.Now.Second > 30 ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy(),
-            //     new[] { "live" })
+            services.AddHealthChecks()
+                .AddCheck("liveness", () => HealthCheckResult.Healthy(), new[] { "live" })
+                .AddCheck("readiness", () => HealthCheckResult.Healthy(), new[] { "ready" });
 
-            //     .AddCheck("readiness",
-            //     () => DateTime.Now.Second > 30 ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy(),
-            //     new[] { "ready" });
+            // HealthCheckResult FakeFailingCheck() => DateTime.Now.Second > 30 ? HealthCheckResult.Healthy() : HealthCheckResult.Unhealthy();
 
             services.AddSingleton<IVotingService>(_ =>
                 Configuration["mongodb"] == null
@@ -42,14 +39,14 @@ namespace VotingApp.Api
             .UseDefaultFiles()
             .UseStaticFiles()
             .UseExceptionHandler()
-            // .UseHealthChecks("/hc/ready", new HealthCheckOptions
-            // {
-            //     Predicate = check => check.Tags.Contains("ready"),
-            // })
-            // .UseHealthChecks("/hc/live", new HealthCheckOptions
-            // {
-            //     Predicate = check => check.Tags.Contains("live"),
-            // })
+            .UseHealthChecks("/hc/ready", new HealthCheckOptions
+            {
+                Predicate = check => check.Tags.Contains("ready"),
+            })
+            .UseHealthChecks("/hc/live", new HealthCheckOptions
+            {
+                Predicate = check => check.Tags.Contains("live"),
+            })
             .UseMvc()
             .UseEasyWebSockets();
     }
