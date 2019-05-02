@@ -1,15 +1,16 @@
 docker pull ubuntu
 docker pull alpine
 docker pull nginx
+docker pull mongo
 
 #debian
-docker pull microsoft/dotnet:2.2-runtime-deps
-docker pull microsoft/dotnet:2.2-runtime
-docker pull microsoft/dotnet:2.2-aspnetcore-runtime
-docker pull microsoft/dotnet:2.2-sdk
+docker pull mcr.microsoft.com/dotnet/core/runtime-deps:2.2
+docker pull mcr.microsoft.com/dotnet/core/runtime:2.2
+docker pull mcr.microsoft.com/dotnet/core/aspnet:2.2
+docker pull mcr.microsoft.com/dotnet/core/sdk:2.2
 
 #alpine
-docker pull microsoft/dotnet:2.2-runtime-deps-alpine
-docker pull microsoft/dotnet:2.2-runtime-alpine
-docker pull microsoft/dotnet:2.2-aspnetcore-runtime-alpine
-docker pull microsoft/dotnet:2.2-sdk-alpine
+docker pull mcr.microsoft.com/dotnet/core/runtime-deps:2.2-alpine
+docker pull mcr.microsoft.com/dotnet/core/runtime:2.2-alpine
+docker pull mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine
+docker pull mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
