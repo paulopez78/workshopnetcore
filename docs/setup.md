@@ -8,7 +8,6 @@
 * [Visual Studio 2019 CE](https://www.visualstudio.com/free-developer-offers/)
 * [Docker CE](https://www.docker.com/get-started)
 * [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-
 * Start docker and execute ``./pull.sh`` (https://github.com/paulopez78/workshopnetcore/blob/master/pull.sh)
 * Sign up in [Docker Hub](https://hub.docker.com/)
 
