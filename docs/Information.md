@@ -107,3 +107,4 @@
 * <https://vimeo.com/213913286>
 * <https://www.slideshare.net/citizenmatt/the-howdareyoucallmeanidiots-guide-to-the-net-standard-ndc-london-2017>
 * <https://github.com/dotnet/standard/blob/master/docs/netstandard-20/packaging.md>
+* <https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/>
