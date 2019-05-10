@@ -10,6 +10,8 @@
 * [cmder](https://cmder.net/)
 * [WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 * [oh-my-zsh, kubectl plugin](https://github.com/robbyrussell/oh-my-zsh)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+* [helm](https://helm.sh/docs/using_helm/#installing-helm)
 * [kubectx and kubens](https://github.com/ahmetb/kubectx)
 * Start docker and execute ``./pull.sh`` (https://github.com/paulopez78/workshopnetcore/blob/master/pull.sh)
 * Sign up in [Docker Hub](https://hub.docker.com/)
