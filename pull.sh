@@ -14,3 +14,7 @@ docker pull mcr.microsoft.com/dotnet/core/runtime-deps:2.2-alpine
 docker pull mcr.microsoft.com/dotnet/core/runtime:2.2-alpine
 docker pull mcr.microsoft.com/dotnet/core/aspnet:2.2-alpine
 docker pull mcr.microsoft.com/dotnet/core/sdk:2.2-alpine
+
+#tools
+docker pull tutum/dnsutils
+docker pull tutum/curl
