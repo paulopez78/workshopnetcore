@@ -49,12 +49,13 @@
     * kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
     * kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
 
-*  Stateful and Persistent Volumes
-    * Votingapp with redis database
-
-*  ConfigMaps and Secrets (optional)
+*  Volumes, ConfigMaps and Secrets 
     * Add nginx as sidecar container of votingapp
     * mount appsettings.json as configmap and appsettings.secrets.json as a secret
+
+*  Stateful and Persistent Volume Claims/StorageClass
+    * Votingapp with redis database
+
 
 ### Helm Package Manager
 

@@ -1,11 +1,12 @@
 #!/bin/sh
 testapi() {
     appjson="Content-Type:application/json"
+    host="Host:votingapp.io"
     url="http://"${1:-localhost:5000}"/api/voting"
 
-    curl --silent --request POST --header $appjson --data "['c#','f#']" $url
-    curl --silent --request PUT --header $appjson --data '"c#"' $url
-    winner=$(curl --silent --request DELETE --header $appjson $url | jq -r '.winner')
+    curl --silent --request POST --header $appjson --header $host --data "['c#','f#']" $url
+    curl --silent --request PUT --header $appjson --header $host --data '"c#"' $url
+    winner=$(curl --silent --request DELETE --header $appjson --header $host $url | jq -r '.winner')
 
     if [ "$winner" == "c#" ]
     then
