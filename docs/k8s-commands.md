@@ -11,6 +11,7 @@
     *  kubectl get/decribe nodes
     *  kubectl explain nodes
     *  kubernetes dashboard
+    *  gcloud container clusters create workshop
 
 *  Pod resource
     *  kubectl run --generator=run-pod/v1

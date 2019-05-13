@@ -5,11 +5,14 @@
 *  kubernetes building blocks and local setup
     * Kubernetes cluster explanation
     * Local kubernetes: Docker-for-desktop or minikube
+    * kubectl cluster-info
     * Cloud kubernetes: GKE, EKS, AKS
-    * Install WSL (for windows users), [oh-my-zsh, kubectl plugin](https://github.com/robbyrussell/oh-my-zsh)
+    * Install WSL and cmder(for windows users)
+    * [oh-my-zsh, kubectl plugin](https://github.com/robbyrussell/oh-my-zsh)
     * [kubectx and kubens](https://github.com/ahmetb/kubectx)
     * kubectl config command
     * kubectl cluster-info
+    * ${HOME}/.kube/conf
 
 *  Pods and Services Basics
     * Create votignapp with kubectl run, explain the pod concept.
@@ -37,21 +40,21 @@
     *  --watch
     *  rolling update with rc
 
-*  ConfigMaps and Secrets
-    * Add nginx as sidecar container of votingapp
-    * mount appsettings.json as configmap and appsettings.secrets.json as a secret
-
-* Ingress Controller
-    * kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
-    * kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
-
 *  Deployments and Rolling Updates
     * kubectl set image deployment/votingapp votingapp=localhost:30400/votingapp:latest
     * kubectl rollout history deployments votingapp
     * kubectl rollout undo deployment/votingapp --to-revision=1
 
+* Ingress Controller
+    * kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
+    * kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/cloud-generic.yaml
+
 *  Stateful and Persistent Volumes
     * Votingapp with redis database
+
+*  ConfigMaps and Secrets (optional)
+    * Add nginx as sidecar container of votingapp
+    * mount appsettings.json as configmap and appsettings.secrets.json as a secret
 
 ### Helm Package Manager
 
